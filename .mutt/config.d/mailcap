@@ -1,0 +1,5 @@
+# vim: set ft=muttrc
+
+application/*; xdg-open %s
+image/*; xdg-open %s
+text/html; firefox %s
