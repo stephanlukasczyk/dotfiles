@@ -108,6 +108,7 @@
 <Multi_key>  <exclam>       <question>     :  "‽" U0203d          # ! ? (INTERROBANG)                                 
 <Multi_key>  <period> <comma> : "·" U00B7            
 <Multi_key>  <comma> <period> : "·" U00B7            
+<Multi_key>  <comma>        <s>            :  " " U02005           # , s (SMALL SPACE)
 
 # Math
 <Multi_key>  <x>            <x>            :  "×" multiply        # x x (MULTIPLICATION SIGN)                         
