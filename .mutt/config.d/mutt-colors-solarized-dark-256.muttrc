@@ -7,7 +7,7 @@
 
 # custom body highlights -----------------------------------------------
 # highlight my name and other personally relevant strings
-color body          color136        default        "(dominique|orban)"
+color body          color136        default        "(stephan|lukasczyk)"
 # custom index highlights ----------------------------------------------
 # messages which mention my name in the body
 #color index         color136        color234        "~b \"phil(_g|\!| gregory| gold)|pgregory\" !~N !~T !~F !~p !~P"
@@ -152,3 +152,17 @@ color body          color33         default       "( *[-+=#*~_]){6,}"
 # Sidebar
 color sidebar_new color33 default
 color sidebar_flagged color160 default
+
+# Diff
+color body color230 default ^[[:space:]].*
+color body color230 default ^(diff).*
+color body color230 default ^(Modified:).*
+color body color230 default ^(Log:).*
+color body color230 default ^[\-\-\-].*
+color body color230 default ^[\+\+\+].*
+color body color64  default ^[\+].*
+color body color160 default ^[\-].*
+color body color33  default [@@].*
+color body color37  default ^(\s).*
+color body color37  default ^(Signed-off-by).*
+color body color234 default ^(Cc)
