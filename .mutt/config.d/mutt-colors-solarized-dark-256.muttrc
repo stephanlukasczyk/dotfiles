@@ -158,11 +158,11 @@ color body color230 default ^[[:space:]].*
 color body color230 default ^(diff).*
 color body color230 default ^(Modified:).*
 color body color230 default ^(Log:).*
-color body color230 default ^[\-\-\-].*
-color body color230 default ^[\+\+\+].*
+color body color160 default ^[\-\-\-].*
+color body color64  default ^[\+\+\+].*
 color body color64  default ^[\+].*
 color body color160 default ^[\-].*
 color body color33  default ^[@@].*
-color body color37  default ^(\s).*
+#color body color37  default ^(\s).*
 color body color37  default ^(Signed-off-by).*
 color body color234 default ^(Cc)
