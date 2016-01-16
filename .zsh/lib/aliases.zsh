@@ -10,14 +10,6 @@ alias rless='less -r'
 alias myip='wget http://checkip.dyndns.org -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
 alias pong="ping -c 3 google.de"
 
-## Root-Aliases
-if [ "$(whoami)" = "root" ]; then
-	alias vpn_uni_ext="openvpn --cd /home/jb/.openvpn/uni/ --config stud-ext.ovpn --auth-user-pass auth"
-	alias vpn_uni_pub="openvpn --cd /home/jb/.openvpn/uni/ --config stud-pub.ovpn --auth-user-pass auth"
-  alias ipredator_connect="openvpn --config /etc/openvpn/IPredator-CLI-Password.conf"
-  alias ipredator_flush_iptables="ferm --flush /etc/ferm-transmission.conf"
-fi
-
 ## Functions
 ## proxy functions
 proxy_set_uni() {
@@ -65,4 +57,4 @@ extract() {
 cpf() { cp "$@" && goto "$_"; }
 mvf() { mv "$@" && goto "$_"; }
 goto() { [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; }
-mkcd() { mkdir "$@" && cd "$@"; }
+mkcd() { mkdir -p "$@" && cd "$@"; }
