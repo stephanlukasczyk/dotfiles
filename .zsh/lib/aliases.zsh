@@ -9,6 +9,7 @@ alias vless='vim -u /usr/share/vim/vim74/macros/less.vim'
 alias rless='less -r'
 alias myip='wget http://checkip.dyndns.org -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
 alias pong="ping -c 3 google.de"
+alias weather="curl -4 wttr.in/Passau"
 
 ## Functions
 ## proxy functions
