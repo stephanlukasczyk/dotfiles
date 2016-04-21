@@ -55,6 +55,7 @@ Bundle 'jlanzarotta/bufexplorer'
 Bundle 'scrooloose/syntastic'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'lervag/vimtex'
+Bundle 'airblade/vim-gitgutter'
 
 " airline display buffers at top row
 let g:airline#extensions#tabline#enabled=1
