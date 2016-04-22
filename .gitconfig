@@ -25,12 +25,11 @@
 [push]
 	default = simple
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+	tool = diffuse
 [mergetool]
 	prompt = false
 [diff]
-	tool = vimdiff
+	tool = diffuse
 [difftool]
 	prompt = false
 [pull]
