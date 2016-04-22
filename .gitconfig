@@ -1,36 +1,36 @@
 [user]
-	name = Stephan Lukasczyk
-	email = stephan@lukasczyk.me
+  name = Stephan Lukasczyk
+  email = stephan@lukasczyk.me
 [color]
-	ui = auto
+  ui = auto
 [core]
-	autocrlf = input
-	savecrlf = true
+  autocrlf = input
+  savecrlf = true
 [push]
-	default = simple
+  default = simple
 [alias]
-	co = checkout
-	ci = commit
-	st = status
-    br = branch -vv
-    brr = branch -vv -r
-    bra = branch -vv -a
-    hist2 = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    lol = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold red)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-    lol2 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold red)%d%C(reset)' --all
-	type = cat-file -t
-    dump = cat-file -p
-    d = difftool
+  co = checkout
+  ci = commit
+  st = status
+  br = branch -vv
+  brr = branch -vv -r
+  bra = branch -vv -a
+  hist2 = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lol = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold red)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  lol2 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold red)%d%C(reset)' --all
+  type = cat-file -t
+  dump = cat-file -p
+  d = difftool
 [push]
-	default = simple
+  default = simple
 [merge]
-	tool = diffuse
+  tool = diffuse
 [mergetool]
-	prompt = false
+  prompt = false
 [diff]
-	tool = diffuse
+  tool = diffuse
 [difftool]
-	prompt = false
+  prompt = false
 [pull]
-	rebase = true
+  rebase = true
