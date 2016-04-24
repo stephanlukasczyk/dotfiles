@@ -1,6 +1,7 @@
 [user]
   name = Stephan Lukasczyk
   email = stephan@lukasczyk.me
+  signingkey = 0x06E03C26B90F403D
 [color]
   ui = auto
 [core]
