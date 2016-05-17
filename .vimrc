@@ -20,6 +20,7 @@ endif
 
 set mouse=a
 set number
+set relativenumber
 
 set laststatus=2
 set encoding=utf-8
