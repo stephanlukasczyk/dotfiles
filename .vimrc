@@ -58,6 +58,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'lervag/vimtex'
 Bundle 'airblade/vim-gitgutter'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " airline display buffers at top row
 let g:airline#extensions#tabline#enabled=1
