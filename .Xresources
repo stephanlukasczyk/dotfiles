@@ -8,7 +8,7 @@ urxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=13:antialias=true:hinting=
 urxvt*boldFont: xft:Inconsolata\ for\ Powerline:bold:pixelsize=13:antialias=true:hinting=true
 urxvt*scrollBar: false
 URxvt.perl-ext-common: default,matcher,font-size
-URxvt.url-launcher: /usr/bin/firefox
+URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
