@@ -7,6 +7,9 @@ export ZSH=~/.zsh
 for config_file ($ZSH/lib/*.zsh) source $config_file
 
 source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+#fpath = ($ZSH/zsh-completions/src $fpath)
+source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Load and run compinit
 autoload -U compinit
