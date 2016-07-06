@@ -60,6 +60,9 @@ Bundle 'lervag/vimtex'
 Bundle 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
+
 
 " airline display buffers at top row
 let g:airline#extensions#tabline#enabled=1
@@ -138,6 +141,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+map <slient> <Leader>e :Errors<CR>
+map <Leader>s :SyntasticToogleMode<CR>
+
+" Haskell
+map <silent> tu :call GHC_BrowseAll()<CR>
+map <slient> tw :call GHC_ShowType(1)<CR>
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+autocmd BufEnter *.hs set formatprg=pointfree
 
 " vimtex
 autocmd Filetype tex setlocal ts=2 sts=2 sw=2
