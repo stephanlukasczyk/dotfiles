@@ -10,3 +10,6 @@
 [submodule ".zsh/zsh-history-substring-search"]
 	path = .zsh/zsh-history-substring-search
 	url = git@github.com:zsh-users/zsh-history-substring-search
+[submodule ".zsh/zgen"]
+	path = .zsh/zgen
+	url = https://github.com/tarjoilija/zgen
