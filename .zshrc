@@ -180,7 +180,7 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=red,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=yellow,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta,bold'
 
-HISTFILE="~/.zsh-history"
+HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=5000
 SAVEHIST=5000
 
