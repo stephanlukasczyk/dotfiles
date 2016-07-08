@@ -45,6 +45,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'ctrlp.vim'
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Bundle 'junegunn/fzf.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
@@ -215,3 +217,15 @@ autocmd FileType python setlocal completeopt-=preview
 " git configuration
 autocmd Filetype gitcommit setlocal spell spelllang=en_us textwidth=72
 autocmd FileType mail setlocal spell spelllang=de_de textwidth=72
+
+" bindings for fzf-vim
+nmap <c-p> :FZF<CR>
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#work({'left': '15%'})
