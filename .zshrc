@@ -228,6 +228,7 @@ autoload -U compinit
 source "${ZGEN}/caiogondim/bullet-train-oh-my-zsh-theme-master/bullet-train.zsh-theme"
 
 ############### Aliases
+export EDITOR=vim
 alias ...='cd ../..'
 alias m='tmux -u2'
 alias vim='vim --servername vim'
