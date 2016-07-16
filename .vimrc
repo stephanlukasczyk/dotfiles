@@ -64,6 +64,12 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ervandew/supertab'
+Plugin 'Shougo/vimproc'
 
 
 " airline display buffers at top row
@@ -147,12 +153,28 @@ map <slient> <Leader>e :Errors<CR>
 map <Leader>s :SyntasticToogleMode<CR>
 
 " Haskell
-map <silent> tu :call GHC_BrowseAll()<CR>
-map <slient> tw :call GHC_ShowType(1)<CR>
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
-autocmd BufEnter *.hs set formatprg=pointfree
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
+
+" Supertab
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+if has("gui_running")
+  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lr>c-x>\<lr>c-o>")<cr>
+  endif
+endif
+let g:haskellmod_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+" tabularize
+let g:haskell_tabular = 1
+vmap a= :Tabularize /=<CR>
+vmap a; :Tabularize /::<CR>
+vmap a- :Tabularize /-><CR>
 
 " vimtex
 autocmd Filetype tex setlocal ts=2 sts=2 sw=2
