@@ -169,6 +169,10 @@ else " no gui
 endif
 let g:haskellmod_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.haskell = ['.']
 
 " tabularize
 let g:haskell_tabular = 1
