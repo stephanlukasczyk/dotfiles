@@ -70,6 +70,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ervandew/supertab'
 Plugin 'Shougo/vimproc'
+Plugin 'luochen1990/rainbow'
 
 
 " airline display buffers at top row
@@ -133,12 +134,13 @@ set ignorecase
 set smartcase
 
 " rainbow parentheses
+let g:rainbow_active = 1
 " au VimEnter * RainbowParenthesesToggle
 " au Syntax * RainbowParenthesesLoadRound
 " au Syntax * RainbowParenthesesLoadSquare
 " au Syntax * RainbowParenthesesLoadBraces
 " au Syntax * RainbowParenthesesLoadChevrons
-" map <leader>R :RainbowParenthesesToggle
+map <leader>R :RainbowToggle<cr>
 
 " syntastic
 set statusline+=%#warningmsg#
