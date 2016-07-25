@@ -55,7 +55,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-dispatch'
 Bundle 'jlanzarotta/bufexplorer'
-" Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'eapache/rainbow_parentheses.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'lervag/vimtex'
@@ -70,7 +70,6 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ervandew/supertab'
 Plugin 'Shougo/vimproc'
-Plugin 'luochen1990/rainbow'
 
 
 " airline display buffers at top row
@@ -134,13 +133,12 @@ set ignorecase
 set smartcase
 
 " rainbow parentheses
-let g:rainbow_active = 1
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
-" au Syntax * RainbowParenthesesLoadChevrons
-map <leader>R :RainbowToggle<cr>
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+map <leader>R :RainbowParenthesesToggle<cr>
 
 " syntastic
 set statusline+=%#warningmsg#
