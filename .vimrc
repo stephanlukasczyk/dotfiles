@@ -70,7 +70,8 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ervandew/supertab'
 Plugin 'Shougo/vimproc'
-
+Plugin 'reedes/vim-wordy'
+Plugin 'dbmrq/vim-ditto'
 
 " airline display buffers at top row
 let g:airline#extensions#tabline#enabled=1
@@ -271,3 +272,29 @@ function! HLNext (blinktime)
   call matchdelete(ring)
   redraw
 endfunction
+
+" wordy
+let g:wordy#ring = [
+      \ 'weak',
+      \ ['being', 'passive-voice', ],
+      \ 'business-jargon',
+      \ 'weasel',
+      \ 'puffery',
+      \ ['problematic', 'redundant', ],
+      \ ['colloquial', 'idiomatic', 'similies', ],
+      \ 'art-jargon',
+      \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+      \ ]
+nnoremap <silent> K :NextWordy<cr>
+if !&wildcharm | set wildcharm=<C-z> | endif
+execute 'nnoremap <leader>w :Wordy<space>'.nr2char(&wildcharm)
+
+" ditto
+au FileType markdown,text,tex DittoOn " Turn on Ditto's autocmds
+nmap <leader>di <Plug>ToggleDitto     " Turn it on and of
+nmap =d <Plug>DittoNext               " Jump to the next word
+nmap -d <Plug>DittoPrev               " Jump to the previous word
+nmap +d <Plug>DittoGood               " Ignore the word under the cursor
+nmap _d <Plug>DittoBad                " Stop ignoring the word under the cursor
+nmap ]d <Plug>DittoMore               " Show the next matches
+nmap [d <Plug>DittoLess               " Show the previous matches
