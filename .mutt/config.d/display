@@ -3,7 +3,7 @@
 
 set sidebar_delim   = '  | '
 set sidebar_visible = yes
-set sidebar_width   = 30
+set sidebar_width   = 32
 #color sidebar_new color 221 color 233
 
 set status_chars  = " *%A"
@@ -18,7 +18,7 @@ set edit_headers = yes
 my_hdr X-Message-Flag: WARNING! Outlook sucks!
 
 set date_format = "%F %T"
-set index_format = "[%4C][%Z][%4c]    %D    %-20.20F    %s"
+set index_format = " [%Z]   %-64.64s    %-25.25F     %D    [%4c]"
 set sort = threads
 #set sort_aux = reverse-last-date-received
 set uncollapse_jump
