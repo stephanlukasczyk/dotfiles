@@ -1,5 +1,6 @@
 export ZSH=~/.zsh
 export ZGEN=~/.zgen
+export PATH=$PATH:~/.local/bin
 
 # load zgen
 source "${ZSH}/zgen/zgen.zsh"
