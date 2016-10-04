@@ -55,7 +55,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-dispatch'
 Bundle 'jlanzarotta/bufexplorer'
-" Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'eapache/rainbow_parentheses.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'lervag/vimtex'
@@ -70,7 +70,8 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ervandew/supertab'
 Plugin 'Shougo/vimproc'
-
+Plugin 'reedes/vim-wordy'
+Plugin 'dbmrq/vim-ditto'
 
 " airline display buffers at top row
 let g:airline#extensions#tabline#enabled=1
@@ -133,20 +134,27 @@ set ignorecase
 set smartcase
 
 " rainbow parentheses
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
-" au Syntax * RainbowParenthesesLoadChevrons
-" map <leader>R :RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+map <leader>R :RainbowParenthesesToggle<cr>
 
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_error_symbol = '☢'
+let g:syntastic_warning_symbol = '⚡'
+let g:syntastic_style_error_symbol = '☛'
+let g:syntastic_style_warning_symbol = '☞'
+let g:syntastic_aggregate_errors = 1
+let g:sytnastic_enable_balloons = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_cpp_check_header = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 map <slient> <Leader>e :Errors<CR>
@@ -271,3 +279,29 @@ function! HLNext (blinktime)
   call matchdelete(ring)
   redraw
 endfunction
+
+" wordy
+let g:wordy#ring = [
+      \ 'weak',
+      \ ['being', 'passive-voice', ],
+      \ 'business-jargon',
+      \ 'weasel',
+      \ 'puffery',
+      \ ['problematic', 'redundant', ],
+      \ ['colloquial', 'idiomatic', 'similies', ],
+      \ 'art-jargon',
+      \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+      \ ]
+nnoremap <silent> K :NextWordy<cr>
+if !&wildcharm | set wildcharm=<C-z> | endif
+execute 'nnoremap <leader>w :Wordy<space>'.nr2char(&wildcharm)
+
+" ditto
+au FileType markdown,text,tex DittoOn " Turn on Ditto's autocmds
+nmap <leader>di <Plug>ToggleDitto     " Turn it on and of
+nmap =d <Plug>DittoNext               " Jump to the next word
+nmap -d <Plug>DittoPrev               " Jump to the previous word
+nmap +d <Plug>DittoGood               " Ignore the word under the cursor
+nmap _d <Plug>DittoBad                " Stop ignoring the word under the cursor
+nmap ]d <Plug>DittoMore               " Show the next matches
+nmap [d <Plug>DittoLess               " Show the previous matches

@@ -257,10 +257,12 @@ proxy_unset() {
   export FTP_PROXY=$http_proxy
 }
 screen_set_uni() {
+  xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --mode 1600x1200 --pos 0x0 --rotate left --output LVDS1 --off --output VGA1 --mode 1600x1200 --pos 1200x400 --rotate normal ;
   xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --mode 1600x1200 --pos 0x0 --rotate left --output LVDS1 --off --output VGA1 --mode 1600x1200 --pos 1200x400 --rotate normal
 }
 screen_unset_uni() {
-  xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1366x768 --rotate normal --output VGA1 -- off
+  xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1366x768 --rotate normal --output VGA1 --off ;
+  xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1366x768 --rotate normal --output VGA1 --off
 }
 
 extract() {
