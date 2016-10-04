@@ -98,6 +98,10 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 zstyle ':completion:*:aliases' list-colors '=*='$cFg'072'
 zstyle ':completion:*:options' list-colors '=(-- *)='$cFg'239'
 # zstyle ':completion:*:options' list-colors '=^(-- *)=34'
+export PATH=$PATH:~/.local/bin
+export LANG='en_US.UTF-8'
+setxkbmap en altgr-intl
+setxkbmap -option caps:escape
 
 # zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt "${infoBg}%SAt %p: TAB for more, or the character to insert%s${reset_color}"

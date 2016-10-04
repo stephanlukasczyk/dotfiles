@@ -100,7 +100,7 @@ set nowritebackup
 set noswapfile
 set autoread
 
-let g:ycm_path_to_python_interpreter='/usr/bin/python3'
+let g:ycm_path_to_python_interpreter='/usr/bin/python2'
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 let g:clang_format#code_style = 'llvm'
 let g:ycm_add_preview_to_completeopt = 1
