@@ -89,7 +89,7 @@ let g:ctrlp_working_path_mode='a'
 
 " vim colors
 "let g:solarized_termcolors=256
-set background=dark
+set background=light
 colorscheme solarized
 
 " highlight syntax in programming languages
