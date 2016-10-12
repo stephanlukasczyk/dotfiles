@@ -72,6 +72,9 @@ Plugin 'ervandew/supertab'
 Plugin 'Shougo/vimproc'
 Plugin 'reedes/vim-wordy'
 Plugin 'dbmrq/vim-ditto'
+Plugin 'ryunix/vim-wttrin'
+
+let g:wttrin#default_location='Passau'
 
 " airline display buffers at top row
 let g:airline#extensions#tabline#enabled=1
