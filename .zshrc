@@ -2,6 +2,9 @@ export ZSH=~/.zsh
 export ZGEN=~/.zgen
 export PATH=~/.local/bin:$PATH
 
+setxkbmap -option caps:escape
+xmodmap -e 'keysym F12 = Multi_key'
+
 # load zgen
 source "${ZSH}/zgen/zgen.zsh"
 
