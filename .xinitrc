@@ -5,14 +5,6 @@ fi
 
 source /etc/X11/xinit/xinitrc.d/30-dbus
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets)
-export GPG_AGENT_INFO
-export GNOME_KEYRING_CONTROL
-export GNOME_KEYRING_PID
-/usr/bin/gnome-keyring-daemon --start --components=gpg
-/usr/bin/gnome-keyring-daemon --start --components=pkcs11
-/usr/bin/gnome-keyring-daemon --start --components=secrets
-
 xbindkeys &
 #setxkbmap -option compose:caps
 setxkbmap -option caps:escape
