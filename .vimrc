@@ -73,6 +73,7 @@ Plugin 'Shougo/vimproc'
 Plugin 'reedes/vim-wordy'
 Plugin 'dbmrq/vim-ditto'
 Plugin 'ryunix/vim-wttrin'
+Plugin 'rhysd/committia.vim'
 
 let g:wttrin#default_location='Passau'
 
