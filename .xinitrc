@@ -26,7 +26,7 @@ owncloud &
 /home/sl/.screenlayout/default.sh
 xset -dpms ; xset s off
 
-redshift-gtk -c /home/sl/.config/redshift.conf &
+redshift -c /home/sl/.config/redshift.conf &
 
 sh ~/.fehbg &
 
