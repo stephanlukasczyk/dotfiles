@@ -18,7 +18,6 @@ unhdr_order *
 hdr_order from: to: cc: date: subject:
 
 set edit_headers = yes
-my_hdr X-Message-Flag: WARNING! Outlook sucks!
 
 set date_format = "%F %T"
 set index_format = " [%Z]   %-64.64s    %-25.25F     %D    [%4c]"
