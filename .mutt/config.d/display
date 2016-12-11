@@ -1,12 +1,14 @@
 # vim: set ft=muttrc
 # appearance settings
 
-set sidebar_delim   = '  | '
+set sidebar_divider_char = '  | '
 set sidebar_visible = yes
 set sidebar_width   = 32
-set sidebar_folderindent = yes
-set sidebar_shortpath = yes
-set sidebar_indentstr = '  '
+set sidebar_folder_indent = yes
+set sidebar_short_path = yes
+set sidebar_indent_string = ' '
+set mail_check_stats
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S "
 #color sidebar_new color 221 color 233
 
 set status_chars  = " *%A"
