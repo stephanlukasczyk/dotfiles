@@ -19,3 +19,4 @@ set send_charset = 'utf-8:us-ascii:iso-8859-15'
 set text_flowed = yes
 #set user_agent = no
 set mailcap_path = /home/sl/.mutt/config.d/mailcap
+set query_command = "pc_query -m '%s'"
