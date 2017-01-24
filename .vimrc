@@ -74,6 +74,10 @@ Plugin 'reedes/vim-wordy'
 Plugin 'dbmrq/vim-ditto'
 Plugin 'ryunix/vim-wttrin'
 Plugin 'rhysd/committia.vim'
+Plugin 'stephanlukasczyk/vim-syntax-specautomata'
+
+au BufNewFile,BufRead *.spc set filetype=vim-syntax-specautomata
+au BufNewFile,BufRead *.spc setfiletype=vim-syntax-specautomata
 
 let g:wttrin#default_location='Passau'
 
