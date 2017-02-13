@@ -47,7 +47,7 @@ Bundle 'ctrlp.vim'
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Bundle 'junegunn/fzf.vim'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer'}
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
