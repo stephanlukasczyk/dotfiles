@@ -21,10 +21,17 @@ endif
 set mouse=a
 set number
 set relativenumber
+set ruler
+set list
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
 
 set laststatus=2
 set encoding=utf-8
 set t_Co=256
+set autoread
+set so=7
 
 " map leader later used for shortcuts
 let mapleader = ","
@@ -68,7 +75,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'Shougo/vimproc'
 Plugin 'reedes/vim-wordy'
 Plugin 'dbmrq/vim-ditto'
