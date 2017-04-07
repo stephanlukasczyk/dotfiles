@@ -54,7 +54,7 @@ if ! zgen saved; then
 
   zgen load zsh-users/zsh-history-substring-search
 
-  zgen load caiogondim/bullet-train-oh-my-zsh-theme
+  zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
   zgen load tarruda/zsh-autosuggestions
   zle -N zle-line-init
