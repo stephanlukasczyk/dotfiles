@@ -1,1 +1,2 @@
+#!/bin/sh
 feh --bg-tile '/home/sl/img/wallpapers/31c3-background-new.jpg' 

@@ -1,5 +1,7 @@
 .offlineimaprc
 .mutt/config.d/account
+.mutt/config.d/account.fim
+.mutt/config.d/account.sl
 .mutt/cache
 .mutt/lukasczyk.me.pem
 .mutt/alias
