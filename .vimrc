@@ -172,6 +172,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint', 'flake8']
 map <slient> <Leader>e :Errors<CR>
 map <Leader>s :SyntasticToogleMode<CR>
 
