@@ -1,0 +1,246 @@
+" additional local configuration for haskell-vim-now
+
+" general setting {{{
+
+set softtabstop=2
+set shiftwidth=2
+set textwidth=80
+set expandtab
+set backspace=indent,eol,start
+
+match ErrorMsg '\s\+$'
+nnoremap <Leader>rtw :%s/\s\+$//e<cr>
+if exists('+colorcolumn')
+  set cc=+1
+  highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+set mouse=a
+set number
+set relativenumber
+
+set laststatus=2
+set encoding=utf-8
+set t_Co=256
+
+let mapleader = ","
+let maplocalleader = ","
+
+filetype on
+filetype plugin on
+filetype plugin indent on
+
+" }}}
+
+" airline display buffers at top row
+let g:airline#extensions#tabline#enabled = 1
+" enable powerline fonts
+let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+
+" find/grep magic to speedup ctrl-p
+let g:ctrlp_user_command = 'find %s -type f | grep -v -P
+      \ "\.git|build\/|\.m4$|\.jpg$|\.png$|\.o$|\.a$|\.so$|\.obj$|\.i$|\.pyc$"
+      \ '
+map <Leader>t :CtrlP<CR>
+" list the files in the current directory
+let g:ctrlp_working_path_mode = 'a'
+
+" vim colors
+colorscheme solarized
+set background=dark
+
+" higlight syntax in programming languages
+syntax on
+
+" YouCompleteMe configuration {{{
+
+let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
+let g:ycm_global_ycm_extra_conf = '~/repos/dotfiles/.ycm_extra_conf.py'
+let g:clang_format#code_style = 'llvm'
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_key_invoke_completion = '<C-Space>'
+map <leader>m :Make!<CR>
+map <leader>n :Copen<CR>
+map <C-K> :pyf ~/repos/dotfiles/clang-format.py<cr>
+imap <C-K> <c-o> :pyf ~/repos/dotfiles/clang-format.py<cr>
+nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>i :YcmCompleter GoToImplementation<cr>
+nnoremap <leader>jd :YcmCompleter GoTo<cr>
+nnoremap <leader>jt :YcmCompleter GetType<cr>
+nnoremap <leader>jp :YcmCompleter GetParent<cr>
+nnoremap <F11> :YcmForceCompileAndDiagnostics<cr>
+autocmd FileType make set noexpandtab
+autocmd FileType cpp let b:dispatch = 'clang++ %'
+setlocal errorformat=<errorformat-string>
+
+" }}}
+
+" rainbox parentheses {{{
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+map <leader>R :RainbowParenthesesToggle<cr>
+
+" }}}
+
+" syntastic {{{
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_error_symbol = '☢'
+let g:syntastic_warning_symbol = '⚡'
+let g:syntastic_style_error_symbol = '☛'
+let g:syntastic_style_warning_symbol = '☞'
+let g:syntastic_aggregate_errors = 1
+let g:sytnastic_enable_balloons = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+map <slient> <Leader>e :Errors<cr>
+map <Leader>s :SyntasticToggleMode<cr>
+
+" }}}
+
+" VimTeX {{{
+
+autocmd Filetype tex setlocal ts=2 sts=2 sw=2
+autocmd Filetype tex setlocal textwidth=80
+autocmd Filetype tex setlocal colorcolumn=81
+autocmd Filetype tex setlocal formatoptions+=t
+autocmd Filetype plaintex setlocal ts=2 sts=2 sw=2
+autocmd Filetype plaintex setlocal textwidth=80
+autocmd Filetype plaintex setlocal colorcolumn=81
+autocmd Filetype plaintex setlocal formatoptions+=t
+autocmd Filetype tex match Error /\%81v.\+/
+autocmd Filetype plaintex match Error /\%81v.\+/
+let g:tex_flavor = 'latex'
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+      \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+      \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+      \ 're!\\hyperref\[[^]]*',
+      \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+      \ 're!\\(include(only)?|input){[^}]*',
+      \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
+      \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
+      \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
+      \ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
+      \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
+      \ ]
+" }}}
+
+" movement {{{
+" bind Ctrl+<movement> keys to move around the windows, instead of using
+" Leader+w <movement>
+
+map <Leader>j <c-w>j
+map <Leader>k <c-w>k
+map <Leader>l <c-w>l
+map <Leader>h <c-w>h
+map <Leader>w <c-w>w
+map <Leader>o <c-w>o
+map <Leader>q <c-w>q
+
+map <Leader>, <esc>:tabprevious<cr>
+map <Leader>. <esc>:tabnext<cr>
+
+" }}}
+
+" custom mappings {{{
+
+vnoremap < <gv " better indentation
+vnoremap > >gv " better indentation
+map <Leader>a ggVG " select all
+map <Leader>n :NERDTree<cr>
+map <F5> :setlocal spell! spelllang=en_us<cr>
+map <F6> :setlocal spell! spelllang=de_de<cr>
+
+autocmd FileType python setlocal completeopt -= preview
+
+" }}}
+
+" git configuration {{{
+
+autocmd Filetype gitcommit setlocal spell spelllang=en_us textwidth=72
+autocmd Filetype mail setlocal spell spelllang=de_de textwidth=72
+
+" }}}
+
+" bindings for fzf-vim {{{
+
+nmap <c-p> :FZF<cr>
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+inoremap <expr> <c-x><c-k> fzf#vim#complete#work({'left': '15%'})
+
+" }}}
+
+" add blinking when jumping to next word for search {{{
+
+nnoremap <silent> n n:call HLNext(0.4)<cr>
+nnoremap <silent> N N:call HLNext(0.4)<cr>
+
+function! HLNext (blinktime)
+  highlight WhiteOnRed ctermfg=White ctermbg=Red
+  let [bufnum, lnum, col, off] = getpos('.')
+  let matchlen = strlen(matchstr(strpart(getline('.'), col-1), @/))
+  let target_pat = '\c\%#\%('.#/.'\)'
+  let ring = matchadd('WhiteOnRed', target_pat, 101)
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  call matchdelete(ring)
+  redraw
+endfunction
+
+" }}}
+
+" wordy {{{
+
+let g:wordy#ring = [
+      \ 'weak',
+      \ ['being', 'passive-voice', ],
+      \ 'business-jargon',
+      \ 'weasel',
+      \ 'puffery',
+      \ ['problematic', 'redundant', ],
+      \ ['colloquial', 'idiomatic', 'similies', ],
+      \ 'art-jargon',
+      \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+      \ ]
+nnoremap <silent> K :NextWordy<cr>
+if !&wildcharm | set wildcharm=<C-z> | endif
+execute 'nnoremap <leader>w :Wordy<space>'.nr2char(&wildcharm)
+
+" }}}
+
+" ditto {{{
+
+au FileType markdown,text,tex DittoOn
+nmap <leader>di <Plug>ToggleDitto
+nmap =d <Plug>DittoNext
+nmap -d <Plug>DittoPrev
+nmap +d <Plug>DittoGood
+nmap _d <Plug>DittoBad
+nmap ]d <Plug>DittoMore
+nmap [d <Plug>DittoLess
+
+" }}}
