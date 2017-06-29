@@ -172,7 +172,7 @@ map <Leader>n :NERDTree<cr>
 map <F5> :setlocal spell! spelllang=en_us<cr>
 map <F6> :setlocal spell! spelllang=de_de<cr>
 
-autocmd FileType python setlocal completeopt -= preview
+autocmd FileType python setlocal completeopt-=preview
 
 " }}}
 
