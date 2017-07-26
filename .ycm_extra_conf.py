@@ -58,12 +58,8 @@ flags = [
 # relevant for c++ headers.
 # For a C project, you would set this to 'c' instead of 'c++'.
 '-x',
-<<<<<<< HEAD
 #'c++',
 'c',
-=======
-'c++',
->>>>>>> origin/wank
 '-I',
 '.',
 '-I',

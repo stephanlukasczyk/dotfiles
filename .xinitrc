@@ -23,8 +23,8 @@ keepassxc &
 
 owncloud &
 
-#/home/sl/.screenlayout/default.sh
-#xset -dpms ; xset s off
+/home/sl/.screenlayout/default.sh
+xset -dpms ; xset s off
 
 redshift -c /home/sl/.config/redshift.conf &
 
