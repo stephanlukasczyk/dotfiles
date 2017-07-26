@@ -4,8 +4,10 @@ xterm*termName: xterm-256color
 !xterm*locale: True
 
 ! URXvt settings - see arch wiki etc.
-urxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=10:antialias=true:hinting=true
-urxvt*boldFont: xft:Inconsolata\ for\ Powerline:bold:pixelsize=10:antialias=true:hinting=true
+!urxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=10:antialias=true:hinting=true
+!urxvt*boldFont: xft:Inconsolata\ for\ Powerline:bold:pixelsize=10:antialias=true:hinting=true
+urxvt*font: xft:Fira\ Code:style=Regular:pixelsize=9:antialias=true:hinting=true
+urxvt*boldFont: xft:Fira\ Code:style=Bold:bold:pixelsize=9:antialias=true:hinting=true
 urxvt*scrollBar: false
 URxvt.perl-ext-common: default,matcher,font-size
 URxvt.url-launcher: /usr/bin/chromium
