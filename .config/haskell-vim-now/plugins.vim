@@ -8,7 +8,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Completion for C/C++
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+
+" Completiong plugins
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-clang'
+Plug 'poppyschmo/deoplete-latex'
+Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-zsh'
+Plug 'fszymanski/deoplete-abook'
+Plug 'wellle/tmux-complete.vim'
 
 " Solarized color theme
 Plug 'altercation/vim-colors-solarized'
