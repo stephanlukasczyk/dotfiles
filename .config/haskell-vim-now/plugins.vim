@@ -1,14 +1,8 @@
 " Custom plugin loading for haskell-vim-now system
 
-" powerline style status line
-"Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-
 " Fuzzy completion for file navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Completion for C/C++
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 
 " Completiong plugins
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -25,6 +19,7 @@ Plug 'altercation/vim-colors-solarized'
 " git stuff
 Plug 'tpope/vim-git'
 Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " fancy git commit style
 Plug 'rhysd/committia.vim'
