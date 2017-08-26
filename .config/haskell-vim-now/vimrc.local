@@ -55,31 +55,15 @@ set background=dark
 " higlight syntax in programming languages
 syntax on
 
-" YouCompleteMe configuration {{{
+" Completion plugins {{{
 
-let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
-let g:ycm_global_ycm_extra_conf = '~/repos/dotfiles/.ycm_extra_conf.py'
-let g:clang_format#code_style = 'llvm'
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_invoke_completion = '<C-Space>'
-map <leader>m :Make!<CR>
-map <leader>n :Copen<CR>
-map <C-K> :pyf ~/repos/dotfiles/clang-format.py<cr>
-imap <C-K> <c-o> :pyf ~/repos/dotfiles/clang-format.py<cr>
-nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
-nnoremap <leader>i :YcmCompleter GoToImplementation<cr>
-nnoremap <leader>jd :YcmCompleter GoTo<cr>
-nnoremap <leader>jt :YcmCompleter GetType<cr>
-nnoremap <leader>jp :YcmCompleter GetParent<cr>
-nnoremap <F11> :YcmForceCompileAndDiagnostics<cr>
-autocmd FileType make set noexpandtab
-autocmd FileType cpp let b:dispatch = 'clang++ %'
-setlocal errorformat=<errorformat-string>
+" Use deoplete.
+let g:deoplete#enable_at_startup=1
+
+let g:deoplete#sources#clang#libclang_path="/usr/lib64/llvm/6/lib64/libclang.so"
+let g:deoplete#sources#clang#clang_header="/usr/lib64/clang"
+
+let g:tmuxcomplete#trigger = ''
 
 " }}}
 
@@ -129,21 +113,6 @@ autocmd Filetype plaintex setlocal formatoptions+=t
 autocmd Filetype tex match Error /\%81v.\+/
 autocmd Filetype plaintex match Error /\%81v.\+/
 let g:tex_flavor = 'latex'
-if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = [
-      \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-      \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-      \ 're!\\hyperref\[[^]]*',
-      \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-      \ 're!\\(include(only)?|input){[^}]*',
-      \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
-      \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
-      \ ]
 " }}}
 
 " movement {{{
@@ -196,20 +165,20 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#work({'left': '15%'})
 
 " add blinking when jumping to next word for search {{{
 
-nnoremap <silent> n n:call HLNext(0.4)<cr>
-nnoremap <silent> N N:call HLNext(0.4)<cr>
-
-function! HLNext (blinktime)
-  highlight WhiteOnRed ctermfg=White ctermbg=Red
-  let [bufnum, lnum, col, off] = getpos('.')
-  let matchlen = strlen(matchstr(strpart(getline('.'), col-1), @/))
-  let target_pat = '\c\%#\%('.#/.'\)'
-  let ring = matchadd('WhiteOnRed', target_pat, 101)
-  redraw
-  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-  call matchdelete(ring)
-  redraw
-endfunction
+"nnoremap <silent> n n:call HLNext(0.4)<cr>
+"nnoremap <silent> N N:call HLNext(0.4)<cr>
+"
+"function! HLNext (blinktime)
+"  highlight WhiteOnRed ctermfg=White ctermbg=Red
+"  let [bufnum, lnum, col, off] = getpos('.')
+"  let matchlen = strlen(matchstr(strpart(getline('.'), col-1), @/))
+"  let target_pat = '\c\%#\%('.#/.'\)'
+"  let ring = matchadd('WhiteOnRed', target_pat, 101)
+"  redraw
+"  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+"  call matchdelete(ring)
+"  redraw
+"endfunction
 
 " }}}
 
@@ -242,5 +211,24 @@ nmap +d <Plug>DittoGood
 nmap _d <Plug>DittoBad
 nmap ]d <Plug>DittoMore
 nmap [d <Plug>DittoLess
+
+" }}}
+
+" nerdtree-git-plugin {{{
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+map <C-n> :NERDTreeToggle<CR>
 
 " }}}

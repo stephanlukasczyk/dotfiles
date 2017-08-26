@@ -50,11 +50,12 @@ if ! zgen saved; then
 
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load trapd00r/zsh-syntax-highlighting-filetypes
-  zgen oh-my-zsh plugins/zsh-syntax-highlighting
+#  zgen oh-my-zsh plugins/zsh-syntax-highlighting
 
   zgen load zsh-users/zsh-history-substring-search
 
-  zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+#  zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+  zgen load sobolevn/sobole-zsh-theme
 
   zgen load tarruda/zsh-autosuggestions
   zle -N zle-line-init
@@ -134,7 +135,7 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
 # HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
 # # ______________________________________________
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets pattern cursor)
-for i in brackets main pattern ; do	# line root
+for i in brackets main pattern cursor root ; do	# line root
 	if [[ " ${ZSH_HIGHLIGHT_HIGHLIGHTERS[*]} " != *" $i "* ]]; then ZSH_HIGHLIGHT_HIGHLIGHTERS+=( $i ); fi
 done
 
@@ -184,9 +185,9 @@ HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=5000
 SAVEHIST=5000
 
-BULLETTRAIN_TIME_SHOW=false
-BULLETTRAIN_STATUS_BG=magenta
-DISABLE_AUTO_TITLE="true"
+#BULLETTRAIN_TIME_SHOW=false
+#BULLETTRAIN_STATUS_BG=magenta
+#DISABLE_AUTO_TITLE="true"
 
 setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
@@ -225,7 +226,10 @@ function exists { which $1 &> /dev/null }
 
 autoload -U compinit
 
-source "${ZGEN}/caiogondim/bullet-train-oh-my-zsh-theme-master/bullet-train.zsh-theme"
+#source "${ZGEN}/caiogondim/bullet-train-oh-my-zsh-theme-master/bullet-train.zsh-theme"
+source "${ZGEN}/sobolevn/sobole-zsh-theme-master/sobole.zsh-theme"
+SOBOLE_THEME_MODE="dark"
+SOBOLE_DEFAULT_USER="sl"
 
 ############### Aliases
 export EDITOR=vim

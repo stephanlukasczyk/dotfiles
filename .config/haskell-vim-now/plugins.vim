@@ -1,14 +1,17 @@
 " Custom plugin loading for haskell-vim-now system
 
-" powerline style status line
-"Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-
 " Fuzzy completion for file navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Completion for C/C++
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+" Completiong plugins
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-clang'
+Plug 'poppyschmo/deoplete-latex'
+Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-zsh'
+Plug 'fszymanski/deoplete-abook'
+Plug 'wellle/tmux-complete.vim'
 
 " Solarized color theme
 Plug 'altercation/vim-colors-solarized'
@@ -16,6 +19,7 @@ Plug 'altercation/vim-colors-solarized'
 " git stuff
 Plug 'tpope/vim-git'
 Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " fancy git commit style
 Plug 'rhysd/committia.vim'
@@ -38,3 +42,13 @@ Plug 'dbmrq/vim-ditto'
 
 " syntax highlighting for CPAchecker's specification automaton syntax
 Plug 'stephanlukasczyk/vim-syntax-specautomata'
+
+" vim-orgmode related plugins
+Plug 'jceb/vim-orgmode'
+Plug 'vim-scripts/utl.vim'
+Plug 'tpope/vim-repeat'
+Plug 'vim-scripts/taglist.vim'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-speeddating'
+Plug 'mattn/calendar-vim'
+Plug 'vim-scripts/SyntaxRange'
