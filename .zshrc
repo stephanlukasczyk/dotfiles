@@ -55,7 +55,7 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-history-substring-search
 
 #  zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-  zgen load sobolevn/sobole-zsh-theme
+  zgen load stephanlukasczyk/sobole-zsh-theme
 
   zgen load tarruda/zsh-autosuggestions
   zle -N zle-line-init
@@ -227,7 +227,7 @@ function exists { which $1 &> /dev/null }
 autoload -U compinit
 
 #source "${ZGEN}/caiogondim/bullet-train-oh-my-zsh-theme-master/bullet-train.zsh-theme"
-source "${ZGEN}/sobolevn/sobole-zsh-theme-master/sobole.zsh-theme"
+source "${ZGEN}/stephanlukasczyk/sobole-zsh-theme-master/sobole.zsh-theme"
 SOBOLE_THEME_MODE="dark"
 SOBOLE_DEFAULT_USER="sl"
 
