@@ -233,7 +233,7 @@ autoload -U compinit
 #source "${ZGEN}/caiogondim/bullet-train-oh-my-zsh-theme-master/bullet-train.zsh-theme"
 source "${ZGEN}/stephanlukasczyk/sobole-zsh-theme-master/sobole.zsh-theme"
 SOBOLE_THEME_MODE="dark"
-SOBOLE_DEFAULT_USER="sl"
+SOBOLE_DEFAULT_USER="lukasczy"
 
 ############### Aliases
 export EDITOR=vim
