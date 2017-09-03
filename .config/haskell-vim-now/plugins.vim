@@ -43,6 +43,8 @@ Plug 'dbmrq/vim-ditto'
 " syntax highlighting for CPAchecker's specification automaton syntax
 Plug 'stephanlukasczyk/vim-syntax-specautomata'
 
+Plug 'keith/tmux.vim'
+
 " vim-orgmode related plugins
 Plug 'jceb/vim-orgmode'
 Plug 'vim-scripts/utl.vim'
