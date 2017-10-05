@@ -4,6 +4,7 @@
 bind index,pager <down>  sidebar-next
 bind index,pager <up>    sidebar-prev
 bind index,pager <right> sidebar-open
+bind index g noop
 bind index gg first-entry
 bind index G last-entry
 
@@ -19,6 +20,7 @@ bind pager k  previous-line
 bind pager j  next-line
 bind pager n  next-thread
 bind pager p  previous-thread
+bind pager g  noop
 bind pager gg top
 bind pager G  bottom
 bind pager R  group-reply
