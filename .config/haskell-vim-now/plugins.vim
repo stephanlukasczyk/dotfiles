@@ -7,7 +7,6 @@ Plug 'junegunn/fzf.vim'
 " Completiong plugins
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-clang'
-Plug 'poppyschmo/deoplete-latex'
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-zsh'
 Plug 'fszymanski/deoplete-abook'
