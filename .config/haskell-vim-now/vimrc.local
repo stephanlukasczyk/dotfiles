@@ -142,7 +142,7 @@ vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 map <Leader>a ggVG " select all
 map <Leader>n :NERDTree<cr>
-map <F5> :setlocal spell! spelllang=en_us<cr>
+map <F5> :setlocal spell! spelllang=en_gb<cr>
 map <F6> :setlocal spell! spelllang=de_de<cr>
 
 autocmd FileType python setlocal completeopt-=preview
@@ -151,7 +151,7 @@ autocmd FileType python setlocal completeopt-=preview
 
 " git configuration {{{
 
-autocmd Filetype gitcommit setlocal spell spelllang=en_us textwidth=72
+autocmd Filetype gitcommit setlocal spell spelllang=en_gb textwidth=72
 autocmd Filetype mail setlocal spell spelllang=de_de textwidth=72
 
 " }}}
