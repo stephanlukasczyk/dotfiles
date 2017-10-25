@@ -11,6 +11,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-zsh'
 Plug 'fszymanski/deoplete-abook'
 Plug 'wellle/tmux-complete.vim'
+Plug 'arakashic/chromatica.nvim'
 
 " Solarized color theme
 Plug 'altercation/vim-colors-solarized'
