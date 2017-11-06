@@ -4,7 +4,7 @@ alias ...='cd ../..'
 
 alias m='tmux -u2'
 alias "gitgui"="LANG=en_US git gui"
-alias vim='vim --servername vim'
+#alias vim='vim --servername vim'
 alias vless='vim -u /usr/share/vim/vim74/macros/less.vim'
 alias rless='less -r'
 alias myip='wget http://checkip.dyndns.org -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
