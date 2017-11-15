@@ -236,10 +236,10 @@ SOBOLE_THEME_MODE="dark"
 SOBOLE_DEFAULT_USER="lukasczy"
 
 ############### Aliases
-export EDITOR=vim
+#export EDITOR=vim
 alias ...='cd ../..'
 alias m='tmux -u2'
-#alias vim='vim --servername vim'
+#alias vim="nvim --cmd \"let g:server_addr = serverstart('vim')\""
 alias myip='wget http://checkip.dyndns.org -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
 alias pong='ping -c 3 google.com'
 alias weather='curl -4 wttr.in/Passau'

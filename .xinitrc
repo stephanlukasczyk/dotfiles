@@ -21,7 +21,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 keepassxc &
 
-owncloud &
+nextcloud &
 
 /home/sl/.screenlayout/default.sh
 xset -dpms ; xset s off
@@ -29,7 +29,5 @@ xset -dpms ; xset s off
 redshift -c /home/sl/.config/redshift.conf &
 
 sh ~/.fehbg &
-
-powerline-daemon &
 
 exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3
