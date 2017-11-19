@@ -232,7 +232,7 @@ SOBOLE_THEME_MODE="dark"
 SOBOLE_DEFAULT_USER="sl"
 
 ############### Aliases
-#export EDITOR=vim
+export EDITOR=/usr/bin/nvim
 alias ...='cd ../..'
 alias m='tmux -u2'
 #alias vim="nvim --cmd \"let g:server_addr = serverstart('vim')\""
