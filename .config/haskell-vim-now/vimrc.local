@@ -151,6 +151,7 @@ vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 map <Leader>a ggVG " select all
 map <Leader>n :NERDTree<cr>
+let NERDTreeShowHidden=1
 map <F5> :setlocal spell! spelllang=en_gb<cr>
 map <F6> :setlocal spell! spelllang=de_de<cr>
 
