@@ -8,7 +8,8 @@ $bibtex_use = 2;
 $biber = 'biber --debug %O %S';
 # Default pdf viewer
 $pdf_update_method = 2;
-$pdf_previewer = 'mupdf %O %S';
+$pdf_previewer = 'mupdf';
+#$pdf_previewer = 'mupdf %O %S';
 # Extra file extensions to clean when latexmk -c or latexmk -C is used
 $clean_ext = '%R.run.xml %R.synctex.gz pdfa.xmpi %R.xmpdata';
 
