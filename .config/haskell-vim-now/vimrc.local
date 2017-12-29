@@ -65,9 +65,18 @@ let g:deoplete#sources#clang#clang_header="/usr/lib64/clang"
 
 let g:tmuxcomplete#trigger = ''
 
+let g:deoplete#sources#jedi#docstring=1
+
 let g:chromatica#libclang_path='/usr/lib64/llvm/5/lib64/libclang.so'
 "let g:chromatica#enable_at_startup=1
 let g:chromatica#responsive_mode=1
+
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+if &filetype=='tex'
+  let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete
+endif
 
 " }}}
 
@@ -142,6 +151,7 @@ vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 map <Leader>a ggVG " select all
 map <Leader>n :NERDTree<cr>
+let NERDTreeShowHidden=1
 map <F5> :setlocal spell! spelllang=en_gb<cr>
 map <F6> :setlocal spell! spelllang=de_de<cr>
 
@@ -164,6 +174,7 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 inoremap <expr> <c-x><c-k> fzf#vim#complete#work({'left': '15%'})
+nmap <c-x><c-b> :Buffers<CR>
 
 " }}}
 
@@ -240,5 +251,13 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 map <C-n> :NERDTreeToggle<CR>
+
+" }}}
+
+" vim-indent-guides {{{
+
+let g:indent_guides_guide_size=1
+let g:indent_guides_start_level=2
+let g:indent_guides_enable_on_vim_startup=1
 
 " }}}
