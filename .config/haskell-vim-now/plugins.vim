@@ -22,6 +22,9 @@ Plug 'arakashic/chromatica.nvim'
 " Solarized color theme
 Plug 'altercation/vim-colors-solarized'
 
+" Reset some creepy stuff in VIM to reasonable base line
+Plug 'tpope/vim-sensible'
+
 " git stuff
 Plug 'tpope/vim-git'
 Plug 'airblade/vim-gitgutter'

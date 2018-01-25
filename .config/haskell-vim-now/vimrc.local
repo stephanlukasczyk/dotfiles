@@ -74,8 +74,8 @@ let g:chromatica#responsive_mode=1
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
-if exists('g:vimtex#re#deoplete')
-  let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+if &filetype=='tex'
+  let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete
 endif
 
 " }}}
@@ -121,7 +121,7 @@ autocmd Filetype tex setlocal colorcolumn=81
 autocmd Filetype tex setlocal formatoptions+=t
 autocmd Filetype plaintex setlocal ts=2 sts=2 sw=2
 autocmd Filetype plaintex setlocal textwidth=80
-autocmd Filetype plaintex setlocal colorcolumn=80
+autocmd Filetype plaintex setlocal colorcolumn=81
 autocmd Filetype plaintex setlocal formatoptions+=t
 autocmd Filetype tex match Error /\%81v.\+/
 autocmd Filetype plaintex match Error /\%81v.\+/
@@ -151,6 +151,7 @@ vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 map <Leader>a ggVG " select all
 map <Leader>n :NERDTree<cr>
+let NERDTreeShowHidden=1
 map <F5> :setlocal spell! spelllang=en_gb<cr>
 map <F6> :setlocal spell! spelllang=de_de<cr>
 
