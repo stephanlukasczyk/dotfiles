@@ -1,7 +1,7 @@
 # vim: set ft=muttrc
 # general settings
 
-set folder = ~/.mail
+set folder = /local/hdd/lukasczy/.mail
 set alias_file = ~/.mutt/alias
 #set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/bodies
