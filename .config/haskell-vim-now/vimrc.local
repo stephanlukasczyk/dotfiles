@@ -78,6 +78,9 @@ if &filetype=='tex'
   let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete
 endif
 
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+
 " }}}
 
 " rainbox parentheses {{{
