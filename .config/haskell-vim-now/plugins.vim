@@ -15,12 +15,14 @@ endif
 Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-zsh'
-Plug 'fszymanski/deoplete-abook'
 Plug 'wellle/tmux-complete.vim'
 Plug 'arakashic/chromatica.nvim'
 
 " Solarized color theme
 Plug 'altercation/vim-colors-solarized'
+
+" Reset some creepy stuff in VIM to reasonable base line
+Plug 'tpope/vim-sensible'
 
 " git stuff
 Plug 'tpope/vim-git'
