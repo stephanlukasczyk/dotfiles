@@ -48,6 +48,9 @@ Plug 'lervag/vimtex'
 Plug 'reedes/vim-wordy'
 Plug 'dbmrq/vim-ditto'
 
+" reStructuredTest syntax mode
+Plug 'vim-scripts/rest.vim'
+
 " syntax highlighting for CPAchecker's specification automaton syntax
 Plug 'stephanlukasczyk/vim-syntax-specautomata'
 
