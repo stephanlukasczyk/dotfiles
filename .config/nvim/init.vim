@@ -35,7 +35,7 @@ set tm=2000
 noremap ,, ,
 
 " Use par for prettier line formatting
-set formatpgr=par
+set formatprg=par
 let $PARINIT = 'rTbgqR B=.,?_A_a Q=_s>|'
 
 " Kill the damned Ex mode
