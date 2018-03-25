@@ -688,6 +688,9 @@ let NERDTreeShowHidden=1
 autocmd Filetype python setlocal completeopt-=preview
 autocmd Filetype mail setlocal spell spelllang=de_de textwidth=72
 
+map <C-I> :pyf /usr/lib64/llvm/6/share/clang/clang-format.py<cr>
+imap <C-I> <c-o> :pyf /usr/lib64/llvm/6/share/clang/clang-format.py<cr>
+
 " }}}
 
 " Bindings for fzf-vim {{{
