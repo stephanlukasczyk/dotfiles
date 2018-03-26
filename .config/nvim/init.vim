@@ -707,8 +707,8 @@ nmap <c-x><c-b> :Buffers<CR>
 
 " Add blinking when jumping to next word for search {{{
 
-nnoremap <silent> n n:call HLNext(0.2)<cr>
-nnoremap <silent> N N:call HLNext(0.2)<cr>
+nnoremap <silent> n n:call HlNext(0.2)<cr>
+nnoremap <silent> N N:call HlNext(0.2)<cr>
 
 function! HlNext (blinktime)
   highlight WhiteOnRed ctermfg=White ctermbg=Red
