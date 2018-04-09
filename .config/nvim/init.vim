@@ -645,14 +645,14 @@ map <Leader>s :SyntasticToggleMode<cr>
 
 " VimTeX {{{
 
-autocmd Filetype tex ts=2 sts=2 sw=2
-autocmd Filetype tex textwidth=80
-autocmd Filetype tex colorcolumn=81
-autocmd Filetype tex formatoptions+=t
-autocmd Filetype plaintex ts=2 sts=2 sw=2
-autocmd Filetype plaintex textwidth=80
-autocmd Filetype plaintex colorcolumn=81
-autocmd Filetype plaintex formatoptions+=t
+autocmd Filetype tex setlocal ts=2 sts=2 sw=2
+autocmd Filetype tex setlocal textwidth=80
+autocmd Filetype tex setlocal colorcolumn=81
+autocmd Filetype tex setlocal formatoptions+=t
+autocmd Filetype plaintex setlocal ts=2 sts=2 sw=2
+autocmd Filetype plaintex setlocal textwidth=80
+autocmd Filetype plaintex setlocal colorcolumn=81
+autocmd Filetype plaintex setlocal formatoptions+=t
 autocmd Filetype tex match Error /\%81v.\+/
 autocmd Filetype plaintex match Error /\%81v.\+/
 let g:tex_flavor = 'latex'
