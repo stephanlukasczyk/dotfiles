@@ -23,10 +23,10 @@ keepassxc &
 
 nextcloud &
 
-/home/sl/.screenlayout/default.sh
+/home/lukasczy/.screenlayout/default.sh
 xset -dpms ; xset s off
 
-redshift -c /home/sl/.config/redshift.conf &
+redshift -c /home/lukasczy/.config/redshift.conf &
 
 sh ~/.fehbg &
 
