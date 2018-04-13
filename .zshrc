@@ -243,6 +243,7 @@ alias m='tmux -u2'
 alias myip='wget http://checkip.dyndns.org -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
 alias pong='ping -c 3 google.com'
 alias weather='curl -4 wttr.in/Passau'
+alias mux="tmuxinator"
 
 proxy_set_uni() {
   export http_proxy="http://www-cache.rz.uni-passau.de:3128"
