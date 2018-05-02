@@ -21,6 +21,7 @@ vim -c 'PlugInstall | qa'
 
 # Link configuration files
 ln -s "${DOTFILEDIR}/.config/redshift.conf" "${HOME}/.config/redshift.conf"
+ln -s "${DOTFILEDIR}/.clang-format" "${HOME}/.clang-format"
 ln -s "${DOTFILEDIR}/.gitconfig" "${HOME}/.gitconfig"
 ln -s "${DOTFILEDIR}/.i3" "${HOME}/.i3"
 ln -s "${DOTFILEDIR}/.i3status.conf" "${HOME}/.i3status.conf"

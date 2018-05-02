@@ -320,6 +320,7 @@ set tabstop=2
 " Linebreak on 80 characters
 set lbr
 set tw=80
+set breakindent " break lines visually intended
 
 set ai " Auto indent
 set si " Smart indent
@@ -645,14 +646,14 @@ map <Leader>s :SyntasticToggleMode<cr>
 
 " VimTeX {{{
 
-autocmd Filetype tex ts=2 sts=2 sw=2
-autocmd Filetype tex textwidth=80
-autocmd Filetype tex colorcolumn=81
-autocmd Filetype tex formatoptions+=t
-autocmd Filetype plaintex ts=2 sts=2 sw=2
-autocmd Filetype plaintex textwidth=80
-autocmd Filetype plaintex colorcolumn=81
-autocmd Filetype plaintex formatoptions+=t
+autocmd Filetype tex setlocal ts=2 sts=2 sw=2
+autocmd Filetype tex setlocal textwidth=80
+autocmd Filetype tex setlocal colorcolumn=81
+autocmd Filetype tex setlocal formatoptions+=t
+autocmd Filetype plaintex setlocal ts=2 sts=2 sw=2
+autocmd Filetype plaintex setlocal textwidth=80
+autocmd Filetype plaintex setlocal colorcolumn=81
+autocmd Filetype plaintex setlocal formatoptions+=t
 autocmd Filetype tex match Error /\%81v.\+/
 autocmd Filetype plaintex match Error /\%81v.\+/
 let g:tex_flavor = 'latex'
@@ -688,6 +689,9 @@ let NERDTreeShowHidden=1
 autocmd Filetype python setlocal completeopt-=preview
 autocmd Filetype mail setlocal spell spelllang=de_de textwidth=72
 
+map <C-I> :pyf /usr/lib64/llvm/6/share/clang/clang-format.py<cr>
+imap <C-I> <c-o> :pyf /usr/lib64/llvm/6/share/clang/clang-format.py<cr>
+
 " }}}
 
 " Bindings for fzf-vim {{{
@@ -704,8 +708,8 @@ nmap <c-x><c-b> :Buffers<CR>
 
 " Add blinking when jumping to next word for search {{{
 
-nnoremap <silent> n n:call HLNext(0.2)<cr>
-nnoremap <silent> N N:call HLNext(0.2)<cr>
+nnoremap <silent> n n:call HlNext(0.2)<cr>
+nnoremap <silent> N N:call HlNext(0.2)<cr>
 
 function! HlNext (blinktime)
   highlight WhiteOnRed ctermfg=White ctermbg=Red
