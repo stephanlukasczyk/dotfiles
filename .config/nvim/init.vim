@@ -928,3 +928,7 @@ endfunction
 vnoremap <silent> <leader>h> :call Pointful()<CR>
 
 " }}}
+
+" org-mode {{{
+let g:org_agenda_files = [ '~/nextcloud/documents/org/work.org' ]
+" }}}

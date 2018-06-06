@@ -50,11 +50,9 @@ if ! zgen saved; then
 
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load trapd00r/zsh-syntax-highlighting-filetypes
-#  zgen oh-my-zsh plugins/zsh-syntax-highlighting
 
   zgen load zsh-users/zsh-history-substring-search
 
-#  zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
   zgen load stephanlukasczyk/sobole-zsh-theme
 
   zgen load tarruda/zsh-autosuggestions
@@ -69,22 +67,19 @@ fi
 # ______________________________________________
 cGrn="190"
 cCyn="122"
-# # zgen selfupdate
-# # setopt correctall
+
 setopt auto_resume
 setopt autocd
-setopt chase_links	 # resolve symlinks
+setopt chase_links   # resolve symlinks
 setopt completeinword
 setopt extendedglob
 setopt interactivecomments
 unsetopt caseglob
 
-# bindkey "^[[A" history-search-backward
-# bindkey "^[[B" history-search-forward
 cFg="2;38;5;"
-# %d	actual text
-infoBg=$BG[234];	infoFg=$FG[244];
-errBg=$BG[052];		errFg=$FG[160]
+# %d  actual text
+infoBg=$BG[234];  infoFg=$FG[244];
+errBg=$BG[052];    errFg=$FG[160]
 zstyle ':completion:::::' completer _complete _approximate
 zstyle ':completion:*:approximate:*' max-errors 2
 
@@ -93,26 +88,15 @@ zstyle ':completion:*' format "${infoBg}${infoFg}- [%d]${reset_color}"
 zstyle ':completion:*' auto-description "$FG[240]specify: %d"
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
-# # zstyle ':completion:*' list-colors ''
-# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(*)=='${cFg}${cGrn}'='$cFg'239}:${(s.:.)LS_COLORS}")';
 zstyle ':completion:*:aliases' list-colors '=*='$cFg'072'
 zstyle ':completion:*:options' list-colors '=(-- *)='$cFg'239'
-# zstyle ':completion:*:options' list-colors '=^(-- *)=34'
 
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt "${infoBg}%SAt %p: TAB for more, or the character to insert%s${reset_color}"
-# # zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select=2 eval "$(dircolors -b)"
-# zstyle ':completion:*' menu select=2 "{infoBg}${infoFg}"
-# # zstyle ':completion:*' menu select=long
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
-# zstyle ':completion:*' "select-prompt %SScrolling active: current selection at %p%s"
 zstyle ':completion:*' "select-prompt %SScroll %p%s"
-# zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-# zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 zstyle ':completion:*:descriptions' format "$FG[094]xxxxxxxx%U%B%d%b%u"
 zstyle ':completion:*:messages' format '%B%U---- %d%u%bxxxxxxxx'
@@ -125,68 +109,126 @@ zstyle ':filter-select:highlight' marked fg=red
 zstyle ':filter-select' case-insensitive yes
 zstyle ':filter-select' extended-search yes
 zstyle ':filter-select' rotate-list yes
-# # zstyle ":completion:*:commands" rehash 1
 
 bindkey '^R' zaw-history
 bindkey '^Q' zaw
 
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=cyan,fg=white'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
-# HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
+
 # # ______________________________________________
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main root brackets pattern cursor)
-for i in brackets main pattern cursor root ; do	# line root
-	if [[ " ${ZSH_HIGHLIGHT_HIGHLIGHTERS[*]} " != *" $i "* ]]; then ZSH_HIGHLIGHT_HIGHLIGHTERS+=( $i ); fi
+for i in brackets main pattern cursor root ; do  # line root
+  if [[ " ${ZSH_HIGHLIGHT_HIGHLIGHTERS[*]} " != *" $i "* ]]; then ZSH_HIGHLIGHT_HIGHLIGHTERS+=( $i ); fi
 done
 
 echo $plugins
 ZSH_HIGHLIGHT_PATTERNS+=('ls -rf *' 'fg=white,bold,bg=red')
 
-# ZSH_HIGHLIGHT_STYLES[alias]=fg=white,bold,underline,standout
-ZSH_HIGHLIGHT_STYLES[alias]="fg=072"
-# ZSH_HIGHLIGHT_STYLES[alias]=fg=white,bold
-ZSH_HIGHLIGHT_STYLES[assign]="fg=yellow,bold"
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-ZSH_HIGHLIGHT_STYLES[builtin]=fg=white,bold
-ZSH_HIGHLIGHT_STYLES[command]=fg=white,bold
-ZSH_HIGHLIGHT_STYLES[commandseparator]=none
-ZSH_HIGHLIGHT_STYLES[default]=none
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=magenta,bold
-ZSH_HIGHLIGHT_STYLES[function]=fg=green,bold
-ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta,bold
-ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=009
-ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
-ZSH_HIGHLIGHT_STYLES[path]=fg=129
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=white,underline
-ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=009,standout
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=005
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=009
-ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[path_approx]=fg=cyan
+## ZSH_HIGHLIGHT_STYLES[alias]=fg=white,bold,underline,standout
+#ZSH_HIGHLIGHT_STYLES[alias]="fg=072"
+## ZSH_HIGHLIGHT_STYLES[alias]=fg=white,bold
+#ZSH_HIGHLIGHT_STYLES[assign]="fg=yellow,bold"
+#ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
+#ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+#ZSH_HIGHLIGHT_STYLES[builtin]=fg=white,bold
+#ZSH_HIGHLIGHT_STYLES[command]=fg=white,bold
+#ZSH_HIGHLIGHT_STYLES[commandseparator]=none
+#ZSH_HIGHLIGHT_STYLES[default]=none
+#ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta
+#ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
+#ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=magenta,bold
+#ZSH_HIGHLIGHT_STYLES[function]=fg=green,bold
+#ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta,bold
+#ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=009
+#ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
+#ZSH_HIGHLIGHT_STYLES[path]=fg=129
+#ZSH_HIGHLIGHT_STYLES[precommand]=fg=white,underline
+#ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=009,standout
+#ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
+#ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=005
+#ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=009
+#ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=cyan
+#ZSH_HIGHLIGHT_STYLES[path_approx]=fg=cyan
+#
+#
+#ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]="fg=160,bg=052"
+#ZSH_HIGHLIGHT_STYLES[bracket-error]='fg=red,bold'
+#ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
+#ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=red,bold'
+#ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=yellow,bold'
+#ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta,bold'
 
-# ZSH_HIGHLIGHT_STYLES[line]='bold'
-# ZSH_HIGHLIGHT_STYLES[root]='bg=red'
+if [[ $COLORFGBG = *';15' ]]; then
+  # solarized light
+  ZSH_HIGHLIGHT_STYLES[alias]='fg=black'
+  ZSH_HIGHLIGHT_STYLES[assign]='fg=yellow,bold' ###
+  ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=red,bold' ###
+  ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=red,bold' #orange
+  ZSH_HIGHLIGHT_STYLES[builtin]='fg=yellow'
+  ZSH_HIGHLIGHT_STYLES[command]='fg=black'
+  ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=cyan,bold' #base1
+  ZSH_HIGHLIGHT_STYLES[default]='fg=green,bold' #base01
+  ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=magenta' ###
+  ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=yellow,bold' #base00
+  ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=magenta,bold' ###
+  ZSH_HIGHLIGHT_STYLES[function]='fg=black'
+  ZSH_HIGHLIGHT_STYLES[globbing]='fg=magenta,bold'
+  ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=black' ###
+  ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=black,underline' ###
+  ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+  ZSH_HIGHLIGHT_STYLES[precommand]='fg=black'
+  ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=black,standout' ###
+  ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=yellow,bold' #base00
+  ZSH_HIGHLIGHT_STYLES[single-quoted-argument='fg=black' ###
+  ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red' ###
+  ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=cyan' ###
+  ZSH_HIGHLIGHT_STYLES[path_approx]='fg=cyan' ###
 
-# ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=yellow,bold'
-# ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=234'
-ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]="fg=160,bg=052"
-# ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]="fg=${infoBg}"
-ZSH_HIGHLIGHT_STYLES[bracket-error]='fg=red,bold'
-ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=red,bold'
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=yellow,bold'
-ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta,bold'
+  ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]="fg=160,bg=052"
+  ZSH_HIGHLIGHT_STYLES[bracket-error]='fg=red,bold'
+  ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
+  ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=red,bold'
+  ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=yellow,bold'
+  ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta,bold'
+else
+  # solarized dark
+  ZSH_HIGHLIGHT_STYLES[alias]='fg=white'
+  ZSH_HIGHLIGHT_STYLES[assign]='fg=yellow,bold' ###
+  ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=red,bold' ###
+  ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=red,bold' #orange
+  ZSH_HIGHLIGHT_STYLES[builtin]='fg=yellow'
+  ZSH_HIGHLIGHT_STYLES[command]='fg=white'
+  ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=green,bold' #base1
+  ZSH_HIGHLIGHT_STYLES[default]='fg=cyan,bold' #base01
+  ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=magenta' ###
+  ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue,bold' #base00
+  ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=magenta,bold' ###
+  ZSH_HIGHLIGHT_STYLES[function]='fg=white'
+  ZSH_HIGHLIGHT_STYLES[globbing]='fg=magenta,bold'
+  ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=white' ###
+  ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=white,underline' ###
+  ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+  ZSH_HIGHLIGHT_STYLES[precommand]='fg=white'
+  ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=white,standout' ###
+  ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=blue,bold' #base00
+  ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=white' ###
+  ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red' ###
+  ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=cyan' ###
+  ZSH_HIGHLIGHT_STYLES[path_approx]='fg=cyan' ###
+
+  ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]="fg=160,bg=052"
+  ZSH_HIGHLIGHT_STYLES[bracket-error]='fg=red,bold'
+  ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
+  ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=red,bold'
+  ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=yellow,bold'
+  ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta,bold'
+fi
 
 HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=5000
 SAVEHIST=5000
 
-#BULLETTRAIN_TIME_SHOW=false
-#BULLETTRAIN_STATUS_BG=magenta
 DISABLE_AUTO_TITLE="true"
 
 setopt APPEND_HISTORY
@@ -201,17 +243,17 @@ setopt HIST_IGNORE_DUPS
 
 # ______________________________________________[zaw]
 function zaw-src-fuzzy() {
-	OLDIFS=$IFS
-	IFS=$'\n'
-	candidates=($(find .))
-	candidates=(${(iou)candidates[@]})
-	IFS=$OLDIFS
-	unset OLDIFS
-	# Define what kind of action can be performed on the selected item
-	# first: accept-line
-	# second: accept-search
-	actions=("zaw-callback-execute" "zaw-callback-append-to-buffer")
-	act_descriptions=("execute" "append to edit buffer")
+  OLDIFS=$IFS
+  IFS=$'\n'
+  candidates=($(find .))
+  candidates=(${(iou)candidates[@]})
+  IFS=$OLDIFS
+  unset OLDIFS
+  # Define what kind of action can be performed on the selected item
+  # first: accept-line
+  # second: accept-search
+  actions=("zaw-callback-execute" "zaw-callback-append-to-buffer")
+  act_descriptions=("execute" "append to edit buffer")
 }
 zaw-register-src -n fuzzy zaw-src-fuzzy
 
@@ -226,7 +268,6 @@ function exists { which $1 &> /dev/null }
 
 autoload -U compinit
 
-#source "${ZGEN}/caiogondim/bullet-train-oh-my-zsh-theme-master/bullet-train.zsh-theme"
 source "${ZGEN}/stephanlukasczyk/sobole-zsh-theme-master/sobole.zsh-theme"
 SOBOLE_THEME_MODE="dark"
 SOBOLE_DEFAULT_USER="sl"
@@ -240,31 +281,6 @@ alias myip='wget http://checkip.dyndns.org -O - -o /dev/null | cut -d: -f 2 | cu
 alias pong='ping -c 3 google.com'
 alias weather='curl -4 wttr.in/Passau'
 alias mux="tmuxinator"
-
-proxy_set_uni() {
-  export http_proxy="http://www-cache.rz.uni-passau.de:3128"
-  export https_proxy=$http_proxy
-  export ftp_proxy=$http_proxy
-  export HTTP_PROXY=$http_proxy
-  export HTTPS_PROXY=$http_proxy
-  export FTP_PROXY=$http_proxy
-}
-proxy_unset() {
-  export http_proxy=""
-  export https_proxy=$http_proxy
-  export ftp_proxy=$http_proxy
-  export HTTP_PROXY=$http_proxy
-  export HTTPS_PROXY=$http_proxy
-  export FTP_PROXY=$http_proxy
-}
-screen_set_uni() {
-  xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --mode 1600x1200 --pos 0x0 --rotate left --output LVDS1 --off --output VGA1 --mode 1600x1200 --pos 1200x400 --rotate normal ;
-  xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --mode 1600x1200 --pos 0x0 --rotate left --output LVDS1 --off --output VGA1 --mode 1600x1200 --pos 1200x400 --rotate normal
-}
-screen_unset_uni() {
-  xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1366x768 --rotate normal --output VGA1 --off ;
-  xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1366x768 --rotate normal --output VGA1 --off
-}
 
 extract() {
   if [ -f $1 ] ; then
