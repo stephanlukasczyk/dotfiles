@@ -190,7 +190,7 @@ if [[ $COLORFGBG = *';15' ]]; then
   ZSH_HIGHLIGHT_STYLES[precommand]='fg=black'
   ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=black,standout' ###
   ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=yellow,bold' #base00
-  ZSH_HIGHLIGHT_STYLES[single-quoted-argument='fg=black' ###
+  ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=black' ###
   ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red' ###
   ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=cyan' ###
   ZSH_HIGHLIGHT_STYLES[path_approx]='fg=cyan' ###
@@ -279,7 +279,7 @@ function exists { which $1 &> /dev/null }
 autoload -U compinit
 
 source "${ZGEN}/stephanlukasczyk/sobole-zsh-theme-master/sobole.zsh-theme"
-SOBOLE_THEME_MODE="dark"
+SOBOLE_THEME_MODE="light"
 SOBOLE_DEFAULT_USER="sl"
 
 ############### Aliases
