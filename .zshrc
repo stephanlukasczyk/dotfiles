@@ -1,5 +1,6 @@
 export ZSH=~/.zsh
 export ZGEN=~/.zgen
+export PATH=/Library/TeX/texbin/:$PATH:/usr/local/bin
 
 # load zgen
 source "${ZSH}/zgen/zgen.zsh"
@@ -93,7 +94,16 @@ zstyle ':completion:*:aliases' list-colors '=*='$cFg'072'
 zstyle ':completion:*:options' list-colors '=(-- *)='$cFg'239'
 
 zstyle ':completion:*' list-prompt "${infoBg}%SAt %p: TAB for more, or the character to insert%s${reset_color}"
-zstyle ':completion:*' menu select=2 eval "$(dircolors -b)"
+# # zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+if whence dircolors >/dev/null; then
+  zstyle ':completion:*' menu select=2 eval "$(dircolors -b)"
+else
+  export CLICOLOR=1
+  zstyle ':completion:*:default' list-colors ''
+fi
+# zstyle ':completion:*' menu select=2 "{infoBg}${infoFg}"
+# # zstyle ':completion:*' menu select=long
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' "select-prompt %SScroll %p%s"
@@ -273,7 +283,7 @@ SOBOLE_THEME_MODE="dark"
 SOBOLE_DEFAULT_USER="sl"
 
 ############### Aliases
-export EDITOR=/usr/bin/nvim
+export EDITOR=/usr/local/bin/nvim
 alias ...='cd ../..'
 alias m='tmux -u2'
 #alias vim="nvim --cmd \"let g:server_addr = serverstart('vim')\""
