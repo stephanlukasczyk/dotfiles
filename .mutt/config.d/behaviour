@@ -1,4 +1,4 @@
-# vim: set ft=muttrc
+# vim: set ft=muttrc :
 
 set envelope_from
 # you should really really include a line with only "-- " in it as a seperator

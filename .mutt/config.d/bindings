@@ -1,4 +1,4 @@
-# vim: set ft=muttrc
+# vim: set ft=muttrc :
 # key bindings
 
 bind index,pager <down>  sidebar-next

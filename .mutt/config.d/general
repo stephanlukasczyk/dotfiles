@@ -1,4 +1,4 @@
-# vim: set ft=muttrc
+# vim: set ft=muttrc:
 # general settings
 
 set folder = ~/.mail
@@ -18,4 +18,4 @@ set quit
 unset mark_old
 set pipe_decode
 set thorough_search
-
+set editor="nvim -c 'set ft=mail' -c Goyo -c Limelight!"
