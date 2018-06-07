@@ -1,4 +1,4 @@
-# vim: set ft=muttrc
+# vim: set ft=muttrc :
 # appearance settings
 
 set sidebar_divider_char = '  | '
