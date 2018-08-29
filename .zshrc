@@ -1,6 +1,8 @@
 export ZSH=~/.zsh
 export ZGEN=~/.zgen
 export PATH=/Library/TeX/texbin/:$PATH:/usr/local/bin
+export LC_ALL="en_GB.UTF-8"
+export LANG="en_GB.UTF-8"
 
 # load zgen
 source "${ZSH}/zgen/zgen.zsh"
