@@ -141,6 +141,10 @@ Plug 'tpope/vim-speeddating'
 Plug 'mattn/calendar-vim'
 Plug 'vim-scripts/SyntaxRange'
 
+" Goyo and Limelight for distraction-freeness and highlight of current paragraph
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 call plug#end()
 " }}}
 
@@ -931,4 +935,41 @@ vnoremap <silent> <leader>h> :call Pointful()<CR>
 
 " org-mode {{{
 let g:org_agenda_files = [ '~/nextcloud/documents/org/work.org' ]
+" }}}
+
+" Goyo {{{
+
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+
+" }}}
+" Limelight {{{
+
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <plug>(Limelight)
+
+let g:limelight_conceal_ctermfg = 245
+let g:limelight_conceal_guifg = '#8a8a8a'
+let g:limelight_priority = -1
+
+map <F11> :Goyo <bar> :Limelight!! <CR>
+
 " }}}
