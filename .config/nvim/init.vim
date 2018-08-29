@@ -240,7 +240,7 @@ syntax on
 
 try
   colorscheme solarized
-  set background=light
+  set background=dark
 catch
 endtry
 
