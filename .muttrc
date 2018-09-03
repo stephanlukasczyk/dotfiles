@@ -1,7 +1,7 @@
-source /Users/sl/.mutt/config.d/general
-source /Users/sl/.mutt/config.d/account
-source /Users/sl/.mutt/config.d/display
-source /Users/sl/.mutt/config.d/bindings
-source /Users/sl/.mutt/config.d/behaviour
-source /Users/sl/.mutt/config.d/pgp
-source /Users/sl/.mutt/config.d/solarized
+source ~/.mutt/config.d/general
+source ~/.mutt/config.d/account
+source ~/.mutt/config.d/display
+source ~/.mutt/config.d/bindings
+source ~/.mutt/config.d/behaviour
+source ~/.mutt/config.d/pgp
+source ~/.mutt/config.d/solarized
