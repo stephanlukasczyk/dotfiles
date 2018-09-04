@@ -50,6 +50,13 @@ endif
 " vim-plug {{{
 set nocompatible
 
+" From vim-plug's tips wiki: automatic installation of vim-plug for NeoVIM
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MyVIMRC
+endif
+
 if has('nvim')
   call plug#begin('~/.config/nvim/bundle')
 else
