@@ -37,5 +37,6 @@ ln -s "${DOTFILEDIR}/.XCompose" "${HOME}/.XCompose"
 ln -s "${DOTFILEDIR}/.xinitrc" "${HOME}/.xinitrc"
 ln -s "${DOTFILEDIR}/.Xresources" "${HOME}/.Xresources"
 ln -s "${DOTFILEDIR}/.zshrc" "${HOME}/.zshrc"
+ln -s "${DOTFILEDIR}/.zsh.d" "${HOME}/.zsh.d"
 
 echo -e "\n\nFinished!"
