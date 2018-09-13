@@ -223,3 +223,4 @@ goto() { [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; }
 mkcd() { mkdir -p "$@" && cd "$@"; }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fpath=(~/.zsh.d/ $fpath)
