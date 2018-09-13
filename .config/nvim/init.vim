@@ -138,16 +138,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'reedes/vim-wordy'
 Plug 'dbmrq/vim-ditto'
 
-" vim-orgmode related stuff
-Plug 'jceb/vim-orgmode'
-Plug 'vim-scripts/utl.vim'
-Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/taglist.vim'
-Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-speeddating'
-Plug 'mattn/calendar-vim'
-Plug 'vim-scripts/SyntaxRange'
-
 " Goyo and Limelight for distraction-freeness and highlight of current paragraph
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -938,10 +928,6 @@ function! Pointful()
 endfunction
 vnoremap <silent> <leader>h> :call Pointful()<CR>
 
-" }}}
-
-" org-mode {{{
-let g:org_agenda_files = [ '~/nextcloud/documents/org/work.org' ]
 " }}}
 
 " Goyo {{{
