@@ -186,7 +186,7 @@ SOBOLE_THEME_MODE="dark"
 SOBOLE_DEFAULT_USER="sl"
 
 ############### Aliases
-export EDITOR=/usr/local/bin/nvim
+export EDITOR=/usr/bin/nvim
 alias ...='cd ../..'
 alias m='tmux -u2'
 #alias vim="nvim --cmd \"let g:server_addr = serverstart('vim')\""
@@ -225,3 +225,4 @@ goto() { [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; }
 mkcd() { mkdir -p "$@" && cd "$@"; }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fpath=(~/.zsh.d/ $fpath)

@@ -50,6 +50,13 @@ endif
 " vim-plug {{{
 set nocompatible
 
+" From vim-plug's tips wiki: automatic installation of vim-plug for NeoVIM
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MyVIMRC
+endif
+
 if has('nvim')
   call plug#begin('~/.config/nvim/bundle')
 else
@@ -130,16 +137,6 @@ Plug 'christoomey/vim-tmux-navigator'
 " For better writing
 Plug 'reedes/vim-wordy'
 Plug 'dbmrq/vim-ditto'
-
-" vim-orgmode related stuff
-Plug 'jceb/vim-orgmode'
-Plug 'vim-scripts/utl.vim'
-Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/taglist.vim'
-Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-speeddating'
-Plug 'mattn/calendar-vim'
-Plug 'vim-scripts/SyntaxRange'
 
 " Goyo and Limelight for distraction-freeness and highlight of current paragraph
 Plug 'junegunn/goyo.vim'
@@ -620,8 +617,8 @@ if &filetype=='tex'
   let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete
 endif
 
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " }}}
 
@@ -931,10 +928,6 @@ function! Pointful()
 endfunction
 vnoremap <silent> <leader>h> :call Pointful()<CR>
 
-" }}}
-
-" org-mode {{{
-let g:org_agenda_files = [ '~/nextcloud/documents/org/work.org' ]
 " }}}
 
 " Goyo {{{
