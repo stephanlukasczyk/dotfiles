@@ -959,7 +959,7 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 nmap <Leader>l <Plug>(Limelight)
 xmap <Leader>l <plug>(Limelight)
 
-let g:limelight_conceal_ctermfg = 245
+let g:limelight_conceal_ctermfg = 240
 let g:limelight_conceal_guifg = '#8a8a8a'
 let g:limelight_priority = -1
 
