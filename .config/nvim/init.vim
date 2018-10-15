@@ -50,6 +50,13 @@ endif
 " vim-plug {{{
 set nocompatible
 
+" From vim-plug's tips wiki: automatic installation of vim-plug for NeoVIM
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MyVIMRC
+endif
+
 if has('nvim')
   call plug#begin('~/.config/nvim/bundle')
 else
@@ -130,6 +137,10 @@ Plug 'christoomey/vim-tmux-navigator'
 " For better writing
 Plug 'reedes/vim-wordy'
 Plug 'dbmrq/vim-ditto'
+
+" Goyo and Limelight for distraction-freeness and highlight of current paragraph
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 " }}}
@@ -916,5 +927,42 @@ function! Pointful()
   call setline('.', split(system('pointful '.shellescape(hoin(getline(a:firstline, a:lastline), "\n"))), "\n"))
 endfunction
 vnoremap <silent> <leader>h> :call Pointful()<CR>
+
+" }}}
+
+" Goyo {{{
+
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+
+" }}}
+" Limelight {{{
+
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <plug>(Limelight)
+
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = '#8a8a8a'
+let g:limelight_priority = -1
+
+map <F11> :Goyo <bar> :Limelight!! <CR>
 
 " }}}
