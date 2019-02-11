@@ -1,5 +1,6 @@
 export ZSH=~/.zsh
 export ZGEN=~/.zgen
+export PATH=$PATH:~/.local/bin
 
 # load zgen
 source "${ZSH}/zgen/zgen.zsh"
@@ -179,7 +180,7 @@ for f in `ls ~/.zsh/completion/*.zsh`; do source $f; done
 
 
 source "${ZGEN}/stephanlukasczyk/sobole-zsh-theme-master/sobole.zsh-theme"
-SOBOLE_THEME_MODE="dark"
+SOBOLE_THEME_MODE="light"
 SOBOLE_DEFAULT_USER="sl"
 
 ############### Aliases
