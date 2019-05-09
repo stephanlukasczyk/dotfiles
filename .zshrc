@@ -27,7 +27,6 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/gnu-utils
   zgen oh-my-zsh plugins/history
   zgen oh-my-zsh plugins/history-substring-search
-  zgen oh-my-zsh plugins/iwhois
   zgen oh-my-zsh plugins/pip
   zgen oh-my-zsh plugins/profiles
   zgen oh-my-zsh plugins/python
