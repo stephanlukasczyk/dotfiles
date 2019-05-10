@@ -31,7 +31,7 @@ path=/home/sl/.mail/
 [user]
 name=Stephan Lukasczyk
 primary_email=stephan@lukasczyk.me
-other_email=ieee@lukasczyk.me;uni@lukasczyk.me;tex@lukasczyk.me;stephan.lukasczyk@gmail.com;lukasczy@fim.uni-passau.de;
+other_email=uni@lukasczyk.me;tex@lukasczyk.me;lukasczy@fim.uni-passau.de;stephan.lukasczyk@uni-passau.de;
 
 # Configuration for "notmuch new"
 #
