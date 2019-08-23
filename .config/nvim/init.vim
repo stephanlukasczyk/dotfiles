@@ -602,12 +602,12 @@ let g:SuperTabDefaultCompletionType = '<c-x><c-p>'
 " Use deoplete
 let g:deoplete#enable_at_startup=1
 
-let g:deoplete#sources#clang#libclang_path="/usr/lib64/llvm/7/lib64/libclang.so"
-let g:deoplete#sources#clang#clang_header="/usr/lib64/clang"
+let g:deoplete#sources#clang#libclang_path="/usr/lib/llvm/8/lib64/libclang.so"
+let g:deoplete#sources#clang#clang_header="/usr/lib/clang"
 
 let g:tmuxcomplete#trigger = ''
 
-let g:chromatica#libclang_path='/usr/lib64/llvm/7/lib64/libclang.so'
+let g:chromatica#libclang_path='/usr/lib/llvm/8/lib64/libclang.so'
 "let g:chromatica#enable_at_startup=1
 let g:chromatica#responsive_mode=1
 
