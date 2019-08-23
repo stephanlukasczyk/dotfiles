@@ -1,4 +1,4 @@
-# /home/sl/.tmuxinator/work.yml
+# /home/sl/.tmuxinator/software-analysis.yml
 
 name: software-analysis
 root: ~/repos/software-analysis/exercise
@@ -46,8 +46,8 @@ windows:
       layout: even-horizontal
       root: ~/repos/software-analysis/exercise/sheets
       panes:
-        - nvim slicer.tex
-        - arara slicer.tex
+        - nvim anomaly-detection.tex
+        - arara anomaly-detection.tex
   - slides:
       layout: even-horizontal
       root: ~/repos/software-analysis/exercise/slides
