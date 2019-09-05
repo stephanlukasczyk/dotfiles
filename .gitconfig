@@ -24,6 +24,7 @@
   type = cat-file -t
   dump = cat-file -p
   d = difftool
+  yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
 [push]
   default = simple
 [merge]

@@ -237,7 +237,7 @@ syntax on
 
 try
   colorscheme solarized
-  set background=dark
+  set background=light
 catch
 endtry
 
@@ -652,6 +652,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 map <silent> <Leader>e :Errors<cr>
 map <Leader>s :SyntasticToggleMode<cr>
+
+let g:syntastic_tex_checkers = ['lacheck', 'chktex', 'proselint']
+let g:syntastic_mail_checkers = ['proselint']
 
 " }}}
 

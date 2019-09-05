@@ -1,6 +1,6 @@
 export ZSH=~/.zsh
 export ZGEN=~/.zgen
-export PATH=/Library/TeX/texbin/:$PATH:/usr/local/bin
+export PATH=/Library/TeX/texbin/:$PATH:/usr/local/bin:/Users/sl/Library/Python/3.7/bin
 export LC_ALL="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
 
@@ -29,7 +29,6 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/gnu-utils
   zgen oh-my-zsh plugins/history
   zgen oh-my-zsh plugins/history-substring-search
-  zgen oh-my-zsh plugins/iwhois
   zgen oh-my-zsh plugins/pip
   zgen oh-my-zsh plugins/profiles
   zgen oh-my-zsh plugins/python
@@ -182,7 +181,7 @@ for f in `ls ~/.zsh/completion/*.zsh`; do source $f; done
 
 
 source "${ZGEN}/stephanlukasczyk/sobole-zsh-theme-master/sobole.zsh-theme"
-SOBOLE_THEME_MODE="dark"
+SOBOLE_THEME_MODE="light"
 SOBOLE_DEFAULT_USER="sl"
 
 ############### Aliases
@@ -193,7 +192,8 @@ alias m='tmux -u2'
 alias myip='wget http://checkip.dyndns.org -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
 alias pong='ping -c 3 google.com'
 alias weather='curl -4 wttr.in/Passau'
-alias mux="tmuxinator"
+alias mux="/usr/local/lib/ruby/gems/2.4.0/bin/tmuxinator"
+alias fuckit='git add .; git commit -m "`curl -s whatthecommit.com/index.txt`"; git push'
 
 extract() {
   if [ -f $1 ] ; then
@@ -226,3 +226,8 @@ mkcd() { mkdir -p "$@" && cd "$@"; }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath=(~/.zsh.d/ $fpath)
+fpath+=~/.zfunc
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# opam configuration
+test -r /Users/sl/.opam/opam-init/init.zsh && . /Users/sl/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
