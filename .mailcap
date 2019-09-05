@@ -1,1 +1,3 @@
-text/html; w3m -I %{charset} -v -F -T text/html -dump %s; copiousoutput
+text/html; w3m -I %{charset} -T text/html; copiousoutput
+application/msword; antiword %s; copiousoutput
+application/pdf; pdftotext -layout /dev/stdin -; copiousoutput

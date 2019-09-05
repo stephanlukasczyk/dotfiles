@@ -31,7 +31,7 @@ macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 bind index B bounce-message
 bind editor <Tab> complete-query
 
-# extract_url.pl
+# extract URLs with extract_url.pl
 macro index,pager ,b "<enter-command> set my_pdsave=\$pipe_decode<enter>\
 <enter-command> unset pipe_decode<enter>\
 <pipe-message>extract_url<enter>\
@@ -39,7 +39,7 @@ macro index,pager ,b "<enter-command> set my_pdsave=\$pipe_decode<enter>\
 
 macro index,pager ,B "<enter-command> set my_pdsave=\$pipe_decode<enter>\
 <enter-command> set pipe_decode<enter>\
-<pipe-message>extract_url</enter>\
+<pipe-message>extract_url<enter>\
 <enter-command> set pipe_decode=\$my_pdsave<enter>" "decrypt message, then get URLs"
 
 message-hook .  'macro index,pager \cb ,b "URL viewer"'

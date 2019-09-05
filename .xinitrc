@@ -7,8 +7,9 @@ source /etc/X11/xinit/xinitrc.d/30-dbus
 
 xbindkeys &
 #setxkbmap -option compose:caps
-setxkbmap -option caps:escape
-xmodmap -e 'keysym F12 = Multi_key'
+#setxkbmap -option caps:escape
+#xmodmap -e 'keysym F12 = Multi_key'
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
 xrdb -l .Xresources
 
