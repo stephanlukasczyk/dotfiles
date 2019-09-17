@@ -56,7 +56,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(org-super-agenda)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -354,57 +354,78 @@ you should place your code here."
                                    (file "~/org/inbox.org")
                                    "* MEETING %<%Y-%m-%d>: %^{prompt}\n:PROPERTIES:\n:CREATED: %U\n:END:\n- [ ] %?\n\n")))
 
+    (require 'org-super-agenda)
     (org-super-agenda-mode)
     (setq org-deadline-warning-days 7)
     (setq org-agenda-block-separator 9472)
     (setq org-agenda-skip-schedule-if-done t)
     (setq org-agenda-start-on-weekday nil)
 
-    ((agenda "" ((org-agenda-span 'day)
-                 (org-agenda-compact-blocks t)
-                 ;; (org-agenda-deadline-leaders)
-                 ;; (org-agenda-scheduled-leaders)
-                 (org-agenda-prefix-format '(
-                                             (agenda . "  %?-12t")
-                                             ))
-                 (org-super-agenda-groups
-                  '(
-                    (:name "⏰ Calendar" :time-grid t)
-                    (:name "⚠ Overdue!" :deadline past)
-                    (:name "⚠ Overdue!" :scheduled past)
+    (setq spacemacs-theme-org-agenda-height nil
+          org-agenda-time-grid '((daily today require-timed) "--------------------" nil)
+          org-agenda-skip-scheduled-if-done t
+          org-agenda-skip-deadline-if-done t
+          org-agenda-include-deadlines t
+          org-agenda-include-diary t
+          org-agenda-block-separator nil
+          org-agenda-compact-blocks t
+          org-agenda-start-with-log-mode t)
 
-                    ;; Discard full-day events from agenda
-                    (:discard (:category "Cal"))
-
-                    (:name "⭐ Next" :todo "NEXT")
-                    (:name "⭐ Important" :priority "A")
-                    (:name "⭐ Routines" :category "Routines")
-
-                    (:auto-category t)
-                    ))
-                 ))
-     (alltodo "" ((org-agenda-overriding-header "")
-                  (org-agenda-prefix-format '(
-                                              (todo . "  ")
-                                              ))
-                  (org-super-agenda-groups
-                   '(
-                     (:name "Inbox" :tag "inbox")
-                     (:name "Verify" :todo "VERIFY")
-                     (:discard (:anything t))
-                     )
-                   ))))
-
-    ((agenda "" (
-                 (orga-agenda-overriding-header "THIS WEEK")
-                 (org-agenda-span 'day)
-                 (org-agenda-scheduled-layers '("   " "%2dx"))
-                 ))
-     (tags "+inbox"
-           ((org-agenda-overriding-header "INBOX: Entries to refile")))
-     (todo "VERIFY"
-           ((org-agenda-overriding-header "FINAL VERIFICATION PENDING")))
-     )
+    (setq org-agenda-custom-commands
+          '(("z" "Super zaen view"
+             ((agenda ""((org-agenda-span 'day)
+                         (org-super-agenda-groups
+                          '((:name "Today"
+                                   :time-grid t
+                                   :date today
+                                   :todo "TODAY"
+                                   :scheduled today
+                                   :order 1)))))
+              (alltodo "" ((org-agenda-overriding-header "")
+                           (org-super-agenda-groups
+                            '((:name "Next to do"
+                                     :todo "NEXT"
+                                     :order 1)
+                              (:name "Important"
+                                     :tag "important"
+                                     :priority "A"
+                                     :order 6)
+                              (:name "Due Today"
+                                     :deadline today
+                                     :order 2)
+                              (:name "Due Soon"
+                                     :deadline future
+                                     :order 8)
+                              (:name "Overdue"
+                                     :deadline past
+                                     :order 7)
+                              (:name "Assignments"
+                                     :tag "assignment"
+                                     :order 10)
+                              (:name "Issues"
+                                     :tag "issue"
+                                     :order 12)
+                              (:name "Projects"
+                                     :tag "project"
+                                     :order 14)
+                              (:name "Research"
+                                     :tag "research"
+                                     :order 15)
+                              (:name "Teaching"
+                                     :tag "teaching"
+                                     :order 13)
+                              (:name "To read"
+                                     :tag "read"
+                                     :order 30)
+                              (:name "Waiting"
+                                     :todo "WAITING"
+                                     :order 20)
+                              (:name "Trivial"
+                                     :priority<= "C"
+                                     :tag ("trivial" "unimportant")
+                                     :todo ("SOMEDAY" )
+                                     :order 90)
+                              (:discard (:tag ("chore" "routine" "daily")))))))))))
 
     (setq org-refile-use-outline-path 'file)
     (setq org-outline-path-complete-in-steps nil)
@@ -437,7 +458,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org-ref pdf-tools key-chord ivy tablist helm-company helm-c-yasnippet helm-bibtex parsebib fuzzy company-statistics company-auctex company biblio biblio-core auto-yasnippet yasnippet auctex-latexmk auctex ac-ispell auto-complete org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (org-super-agenda ts ht org-ref pdf-tools key-chord ivy tablist helm-company helm-c-yasnippet helm-bibtex parsebib fuzzy company-statistics company-auctex company biblio biblio-core auto-yasnippet yasnippet auctex-latexmk auctex ac-ispell auto-complete org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
