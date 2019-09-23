@@ -602,12 +602,12 @@ let g:SuperTabDefaultCompletionType = '<c-x><c-p>'
 " Use deoplete
 let g:deoplete#enable_at_startup=1
 
-let g:deoplete#sources#clang#libclang_path="/usr/lib/llvm/8/lib64/libclang.so"
+let g:deoplete#sources#clang#libclang_path="/usr/lib/llvm/9/lib64/libclang.so"
 let g:deoplete#sources#clang#clang_header="/usr/lib/clang"
 
 let g:tmuxcomplete#trigger = ''
 
-let g:chromatica#libclang_path='/usr/lib/llvm/8/lib64/libclang.so'
+let g:chromatica#libclang_path='/usr/lib/llvm/9/lib64/libclang.so'
 "let g:chromatica#enable_at_startup=1
 let g:chromatica#responsive_mode=1
 
@@ -704,8 +704,8 @@ let NERDTreeShowHidden=1
 autocmd Filetype python setlocal completeopt-=preview
 autocmd Filetype mail setlocal spell spelllang=de_de textwidth=72
 
-map <C-I> :pyf /usr/lib64/llvm/6/share/clang/clang-format.py<cr>
-imap <C-I> <c-o> :pyf /usr/lib64/llvm/6/share/clang/clang-format.py<cr>
+map <C-I> :pyf /usr/lib/llvm/9/share/clang/clang-format.py<cr>
+imap <C-I> <c-o> :pyf /usr/lib/llvm/9/share/clang/clang-format.py<cr>
 
 nnoremap <silent> <leader>g :FloatIt<CR>
 
