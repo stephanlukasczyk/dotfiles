@@ -318,6 +318,9 @@ you should place your code here."
     (org-indent-mode)
     (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
 
+    (add-hook 'org-mode-hook #'toggle-word-wrap)
+    (add-hook 'org-mode-hook 'turn-on-fci-mode)
+
     (require 'org-checklist)
 
     (defun my-org-daily-agenda ()
