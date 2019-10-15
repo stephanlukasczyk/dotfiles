@@ -1,4 +1,4 @@
-# /home/sl/.tmuxinator/work.yml
+# /home/sl/.tmuxinator/writing.yml
 
 name: writing
 root: ~/repos/papers
@@ -42,15 +42,9 @@ root: ~/repos/papers
 windows:
   - ranger:
       - ranger
-  - PhD-Symposium:
+  - testgen-paper:
       layout: even-horizontal
-      root: ~/repos/papers/phd-symposium
+      root: ~/repos/papers/python-test-generation
       panes:
         - nvim main.tex
-        - arara main
-  - PyDefects-paper:
-      layout: even-horizontal
-      root: ~/repos/papers/pydefects
-      panes:
-        - nvim main.tex
-        - arara main
+        - latexmk -pdf main

@@ -1,7 +1,7 @@
-# /home/sl/.tmuxinator/pynguin.yml
+# /home/sl/.tmuxinator/software-testing.yml
 
-name: Pynguin
-root: ~/repos/pynguin
+name: software-testing
+root: ~/repos/software-testing/exercise
 
 # Optional tmux socket
 # socket_name: foo
@@ -40,14 +40,7 @@ root: ~/repos/pynguin
 # attach: false
 
 windows:
-  - ranger/watson:
-      layout: even-vertical
-      panes:
-        - ranger
-        - watson status
-  - Pynguin:
-      layout: even-vertical
-      root: ~/repos/pynguin
-      panes:
-        - git status; poetry update --dry-run
-        - poetry shell
+  - ranger:
+      - ranger
+  - exercise:
+      - git status
