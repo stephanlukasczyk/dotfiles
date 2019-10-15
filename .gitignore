@@ -7,3 +7,4 @@
 .mutt/alias
 .config/
 .mutt/temp
+.mutt/config.d/account.uni
