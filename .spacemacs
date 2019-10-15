@@ -312,6 +312,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (global-linum-mode)
+  (setq display-line-numbers 'relative)
   (with-eval-after-load 'org
     ;; Configurations for org-mode
     (require 'org-indent)
@@ -320,6 +321,8 @@ you should place your code here."
 
     (add-hook 'org-mode-hook #'toggle-word-wrap)
     (add-hook 'org-mode-hook 'turn-on-fci-mode)
+    (global-linum-mode)
+    (setq display-line-numbers 'relative)
 
     (require 'org-checklist)
 
