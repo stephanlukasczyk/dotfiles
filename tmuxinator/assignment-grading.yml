@@ -1,7 +1,7 @@
-# /home/sl/.tmuxinator/pydefects.yml
+# /home/sl/.tmuxinator/assignment-grading.yml
 
-name: PyDefects
-root: ~/repos/pydefects
+name: AssignmentGrading
+root: ~/repos/assignment-grading
 
 # Optional tmux socket
 # socket_name: foo
@@ -45,9 +45,9 @@ windows:
       panes:
         - ranger
         - watson status
-  - PyDefects:
+  - Pynguin:
       layout: even-vertical
-      root: ~/repos/pydefects
+      root: ~/repos/assignment-grading
       panes:
         - git status; poetry update --dry-run
         - poetry shell

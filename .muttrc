@@ -4,4 +4,4 @@ source ~/.mutt/config.d/display
 source ~/.mutt/config.d/bindings
 source ~/.mutt/config.d/behaviour
 source ~/.mutt/config.d/pgp
-source ~/.mutt/config.d/solarized
+source ~/.mutt/config.d/mutt-colors-solarized-dark-256.muttrc

@@ -31,4 +31,4 @@ redshift -c /home/sl/.config/redshift.conf &
 
 sh ~/.fehbg &
 
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3
+exec dbus-launch --sh-syntax --exit-with-session i3

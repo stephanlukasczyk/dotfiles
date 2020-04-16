@@ -36,5 +36,3 @@
   prompt = false
 [pull]
   rebase = true
-[commit]
-  template = ~/.gitmessage
