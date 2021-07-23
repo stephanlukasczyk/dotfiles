@@ -22,7 +22,7 @@ hdr_order from: to: cc: date: subject:
 set edit_headers = yes
 
 set date_format = "%F %T"
-set index_format = " [%Z]   %-64.64s    %-25.25F     %D    [%4c]"
+set index_format = " [%Z]   %-63.63s    %-24.24F     %D    [%4c]"
 set sort = threads
 #set sort_aux = reverse-last-date-received
 set uncollapse_jump
@@ -36,8 +36,3 @@ set tilde
 unset markers
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set assumed_charset = 'utf-8:iso8859-15'
-
-# Use W3M for unfaithful HTML mail, as many people are not able to send proper
-# mail…
-alternative_order text/plain text/enriched text/html
-auto_view text/html

@@ -2,14 +2,20 @@
 	name = Stephan Lukasczyk
 	email = stephan@lukasczyk.me
   signingkey = 0x06E03C26B90F403D
+
 [color]
   ui = auto
+
 [core]
   autocrlf = input
   savecrlf = true
-	editor = /usr/local/bin/nvim
+  editor = /usr/local/bin/nvim
+  excludesfile = /Users/sl/.gitignore_global
+  pager = delta
+
 [push]
   default = simple
+
 [alias]
   co = checkout
   ci = commit
@@ -25,15 +31,31 @@
   dump = cat-file -p
   d = difftool
   yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
+
 [push]
   default = simple
+
 [merge]
-  tool = diffuse
+  tool = meld
+
 [mergetool]
   prompt = false
+
 [diff]
-  tool = diffuse
+  tool = meld
+
 [difftool]
   prompt = false
+
 [pull]
   rebase = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  features = side-by-side line-numbers decorations
+  whitespace-error-style = 22 reverse
+  syntax-theme = Solarized (light)
+[init]
+	defaultBranch = main

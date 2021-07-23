@@ -1,5 +1,13 @@
 # vim: set ft=muttrc :
+#
+# alternative_order text/plain text/enriched text/html
+# text/html; w3m -I %{charset} -T text/html; copiousoutput;
+# auto_view text/html
 
-application/*; xdg-open %s
-image/*; xdg-open %s
-text/html; firefox %s
+# Read in plain text if possible
+alternative_order text/plain text/html
+auto_view text/html
+set mailcap_path = ~/.mailcap
+
+# Enforce encoding in utf8
+set send_charset="utf-8"

@@ -1,8 +1,13 @@
 export ZSH=~/.zsh
 export ZGEN=~/.zgen
-export PATH=/Library/TeX/texbin/:$PATH:/usr/local/bin:/Users/sl/Library/Python/3.7/bin
+export PATH=/Library/TeX/texbin/:$PATH:/usr/local/bin:/Users/sl/.poetry/bin
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export PATH="~/Library/Python/3.9/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
+export PKG_CONFIG_PATH="/usr/local/opt/python@3.8/lib/pkgconfig"
 export LC_ALL="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
+export XZ_DEFAULT="-T0 -9"
 
 # load zgen
 source "${ZSH}/zgen/zgen.zsh"
@@ -181,7 +186,7 @@ for f in `ls ~/.zsh/completion/*.zsh`; do source $f; done
 
 
 source "${ZGEN}/stephanlukasczyk/sobole-zsh-theme-master/sobole.zsh-theme"
-SOBOLE_THEME_MODE="light"
+SOBOLE_THEME_MODE="dark"
 SOBOLE_DEFAULT_USER="sl"
 
 ############### Aliases
@@ -231,3 +236,13 @@ fpath+=~/.zfunc
 
 # opam configuration
 test -r /Users/sl/.opam/opam-init/init.zsh && . /Users/sl/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+alias python=/usr/local/bin/python3
+alias pip=/usr/local/bin/pip3
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+fi
+
